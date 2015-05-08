@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <color name="edit_text_color">#000000</color>
+     <color name="strip_bg">#ffe3e3e3</color>
+     <color name="required_field_hint_color">#3fe37661</color>
+</resources>

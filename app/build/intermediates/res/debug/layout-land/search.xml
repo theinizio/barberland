@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:id="@+id/search_layout"
+    android:paddingLeft="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Поиск"
+        android:id="@+id/textView6"
+        android:textColor="@color/edit_text_color"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="По месторасположению:"
+        android:id="@+id/textView9"
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/edit_text_color"
+        android:textIsSelectable="false" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="GPS"
+            android:id="@+id/button"
+            android:textColor="@color/edit_text_color"
+            android:textSize="@dimen/text_size"
+            android:background="@color/required_field_hint_color"
+            android:gravity="left|center|center_horizontal"
+            android:paddingLeft="5dp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Указать на карте"
+            android:id="@+id/button2"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/edit_text_color"
+            android:background="@color/required_field_hint_color"
+            android:gravity="left|center|center_horizontal"
+            android:paddingLeft="5dp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Ближайшее метро"
+            android:id="@+id/button3"
+            android:textColor="@color/edit_text_color"
+            android:textSize="@dimen/text_size"
+            android:background="@color/required_field_hint_color"
+            android:paddingLeft="5dp"
+            android:paddingRight="2dp"
+            android:gravity="left|center|center_horizontal" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="По салону:"
+        android:id="@+id/textView91"
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/edit_text_color"
+        android:textIsSelectable="false" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Название"
+            android:id="@+id/button12"
+            android:textColor="@color/edit_text_color"
+            android:textSize="@dimen/text_size"
+            android:background="@color/required_field_hint_color"
+            android:gravity="left|center|center_horizontal"
+            android:paddingLeft="5dp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Ценовая категория"
+            android:id="@+id/button22"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/edit_text_color"
+            android:background="@color/required_field_hint_color"
+            android:gravity="left|center|center_horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="2dp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Услуги"
+            android:id="@+id/button32"
+            android:textColor="@color/edit_text_color"
+            android:textSize="@dimen/text_size"
+            android:background="@color/required_field_hint_color"
+            android:paddingLeft="5dp"
+            android:paddingRight="2dp"
+            android:gravity="left|center|center_horizontal" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="По мастеру:"
+        android:id="@+id/textView92"
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/edit_text_color"
+        android:textIsSelectable="false" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="ФИО"
+            android:id="@+id/button13"
+            android:textColor="@color/edit_text_color"
+            android:textSize="@dimen/text_size"
+            android:background="@color/required_field_hint_color"
+            android:gravity="left|center|center_horizontal"
+            android:paddingLeft="5dp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Специализация"
+            android:id="@+id/button23"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/edit_text_color"
+            android:background="@color/required_field_hint_color"
+            android:gravity="left|center|center_horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="2dp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Квалификация"
+            android:id="@+id/button33"
+            android:textColor="@color/edit_text_color"
+            android:textSize="@dimen/text_size"
+            android:background="@color/required_field_hint_color"
+            android:paddingLeft="5dp"
+            android:paddingRight="2dp"
+            android:gravity="left|center|center_horizontal" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="По времени:"
+        android:id="@+id/textView93"
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/edit_text_color"
+        android:textIsSelectable="false" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+
+        />
+
+</LinearLayout>
+</ScrollView><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout-land/search.xml -->

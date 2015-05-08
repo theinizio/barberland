@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:gravity="center_horizontal"
+    android:paddingLeft="10dp" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/page_2" />
+
+    <EditText
+        android:id="@+id/clientName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/text_ramka"
+        android:ems="10"
+        android:textSize="@dimen/text_size"
+        android:hint="Имя"
+        android:inputType="textCapWords|textPersonName"
+        android:textCursorDrawable="@color/edit_text_color"
+        android:paddingLeft="10dp"
+        android:textColor="@color/edit_text_color"
+        android:textColorHint="@drawable/required_hint_color_selector"
+        android:maxLength="50">
+
+
+    </EditText>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/clientName"
+        android:layout_marginTop="18dp"
+        android:id="@+id/phone"
+        android:background="@drawable/text_ramka"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="+38"
+            android:id="@+id/plus38"
+            android:maxLength="3"
+            android:textColor="@color/edit_text_color"
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:id="@+id/client_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:textSize="@dimen/text_size"
+            android:hint="0..."
+            android:inputType="phone|numberDecimal"
+            android:textColor="@color/edit_text_color"
+            android:textColorHint="@drawable/required_hint_color_selector"
+            android:textCursorDrawable="@color/edit_text_color"
+            android:maxLength="10"
+            android:paddingLeft="0dp"
+            android:background="@null" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/pinOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="40dp"
+        android:background="@null"
+        android:onClick="savePhoneAndName"
+        android:src="@drawable/ok"
+        android:layout_below="@+id/phone"
+        android:layout_alignRight="@+id/phone" />
+
+</LinearLayout>

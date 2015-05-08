@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:background="#ffffff">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/reg_form"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/barber_photo"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="32dp"
+        android:src="@drawable/nophoto"
+        android:background="@null" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_toRightOf="@+id/barber_photo"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/barberName">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/barber_name"
+            android:layout_below="@+id/imageView"
+            android:layout_alignLeft="@+id/imageView"
+            android:hint="Имя"
+            android:textColor="@color/edit_text_color"
+            android:background="@drawable/text_ramka"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:editable="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/barber_second_name"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/edit_text_color"
+            android:hint="Фамилия"
+            android:background="@drawable/text_ramka"
+            android:editable="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/phone_number"
+            android:layout_gravity="center_horizontal"
+            android:hint="+380..."
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/edit_text_color"
+            android:background="@drawable/text_ramka"
+            android:editable="true" />
+    </LinearLayout>
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/salon"
+            android:text="Место работы"
+            android:textColor="@color/edit_text_color"
+            android:layout_below="@+id/barberName"
+            android:paddingLeft="12dp"
+            android:background="@color/strip_bg"
+             />
+
+        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/salon"
+        android:layout_marginLeft="12dp"
+        android:minWidth="85dp"
+
+        android:id="@+id/salonName"
+            android:background="@color/strip_bg">
+
+            <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/salon_name"
+            android:background="@drawable/text_ramka"
+            android:editable="true"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:hint="Название салона"
+            android:minWidth="150dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/salon_address"
+            android:background="@drawable/text_ramka"
+            android:editable="true"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:hint="Адрес салона"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/salon_phone"
+            android:background="@drawable/text_ramka"
+            android:editable="true"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:hint="Телефон салона" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="График работы"
+        android:id="@+id/sheduleText"
+        android:textColor="@color/edit_text_color"
+        android:layout_below="@+id/salonName"
+
+        android:layout_marginTop="8dp"
+
+        android:background="@color/strip_bg"
+        android:paddingLeft="12dp" />
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sheduleText"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/sheduleGrid"
+       >
+
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:checked="true"
+                android:enabled="true"
+                android:id="@+id/isMonday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="понедельник"
+                android:id="@+id/monday"
+                android:layout_column="1"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/mondayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/edit_text_color"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/mondayFinishTime"
+
+                android:textColor="@color/edit_text_color"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:checked="true"
+                android:enabled="true"
+                android:id="@+id/isTuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="вторник"
+                android:id="@+id/tuesday"
+                android:layout_column="1"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/tuesdayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/edit_text_color"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/tuesdayFinishTime"
+
+                android:textColor="@color/edit_text_color"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:checked="true"
+                android:enabled="true"
+                android:id="@+id/isWednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="среда"
+                android:id="@+id/wednesday"
+                android:layout_column="1"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/wednesdayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/edit_text_color"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/wednesdayFinishTime"
+
+                android:textColor="@color/edit_text_color"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:checked="true"
+                android:enabled="true"
+                android:id="@+id/isThursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="четверг"
+                android:id="@+id/thursday"
+                android:layout_column="1"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/thursdayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/edit_text_color"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/thursdayFinishTime"
+
+                android:textColor="@color/edit_text_color"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:checked="true"
+                android:enabled="true"
+                android:id="@+id/isFriday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="пятница"
+                android:id="@+id/friday"
+                android:layout_column="1"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/fridayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/edit_text_color"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/fridayFinishTime"
+
+                android:textColor="@color/edit_text_color"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:checked="true"
+                android:enabled="true"
+                android:id="@+id/isSaturday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="суббота"
+                android:id="@+id/saturday"
+                android:layout_column="1"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/saturdayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/edit_text_color"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/saturdayFinishTime"
+
+                android:textColor="@color/edit_text_color"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:checked="true"
+                android:enabled="true"
+                android:id="@+id/isSunday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="воскресенье"
+                android:id="@+id/sunday"
+                android:layout_column="1"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/sundayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/edit_text_color"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/sundayFinishTime"
+
+                android:textColor="@color/edit_text_color"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+
+
+
+    </TableLayout>
+        <TextView android:id="@+id/qualification"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Квалификация"
+            android:textColor="@color/edit_text_color"
+            android:layout_below="@+id/sheduleGrid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/strip_bg"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="12dp" />
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@+id/qualification"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/qualificationGrid">
+
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isBarber"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isBarberText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="парикмахер"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isMaster"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isMastererText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="мастер"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isStylist"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isStylistText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="стилист"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+
+            </TableLayout>
+        <TextView android:id="@+id/specialization"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Специализация"
+            android:textColor="@color/edit_text_color"
+            android:layout_below="@+id/qualificationGrid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/strip_bg"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="12dp" />
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="false"
+            android:layout_below="@+id/specialization"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/specializationGrid">
+
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isWomanCut"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isWomanCutText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="стрижки женские"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isManCut"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isManCutText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="стрижки мужские"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isEvening"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isEveningText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="вечерние прически"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isColor"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isColorText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="колорирование"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+            <TableRow android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <CheckBox android:id="@+id/isHighLight"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:id="@+id/isHighlightText"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="мелирование"
+                    android:textColor="@color/edit_text_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+        </TableLayout>
+
+        <ImageButton
+            android:layout_below="@id/specializationGrid"
+            android:layout_magrinRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ok" />
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="#FFFFFF" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/enter_pin" />
+
+    <EditText
+        android:id="@+id/pin_code"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:ems="4"
+        android:gravity="center_horizontal"
+        android:hint="1234"
+        android:inputType="numberDecimal"
+        android:lines="1"
+
+        android:scrollHorizontally="false"
+        android:selectAllOnFocus="false"
+        android:textColor="@color/edit_text_color"
+        android:textSize="26dp"
+        android:textColorHint="@drawable/required_hint_color_selector"
+        android:maxLength="4" />
+
+    <ImageButton
+        android:id="@+id/pinOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pin_code"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:onClick="checkPin"
+        android:src="@drawable/ok" />
+
+</RelativeLayout>

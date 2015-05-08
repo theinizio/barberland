@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BarberLand</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_name">Введите имя</string>
+
+
+    <string-array name="metro_list">
+        <item>Академгородок</item>
+        <item>Житомирская</item>
+        <item>Святошин</item>
+        <item>Нивки</item>
+        <item>Берестейская</item>
+        <item>Шулявская</item>
+        <item>Политехнический институт</item>
+        <item>Вокзальная</item>
+        <item>Университет</item>
+        <item>Театральная</item>
+        <item>Крещатик</item>
+        <item>Арсенальная</item>
+        <item>Днепр</item>
+        <item>Гидропарк</item>
+        <item>Левобережная</item>
+        <item>Дарница</item>
+        <item>Черниговская</item>
+        <item>Лесная</item>
+        <item>Героев Днепра</item>
+        <item>Минская</item>
+        <item>Оболонь</item>
+        <item>Петровка</item>
+        <item>Тараса Шевченко</item>
+        <item>Контрактовая площадь</item>
+        <item>Почтовая площадь</item>
+        <item>Площадь Независимости</item>
+        <item>Площадь Льва Толстого</item>
+        <item>Олимпийская</item>
+        <item>Дворец Украина</item>
+        <item>Лыбедская</item>
+        <item>Демиевская</item>
+        <item>Голосеевская</item>
+        <item>Васильковская</item>
+        <item>Выставочный центр</item>
+        <item>Ипподром</item>
+        <item>Теремки</item>
+        <item>Сырец</item>
+        <item>Дорогожичи</item>
+        <item>Лукьяновская</item>
+        <item>Золотые ворота</item>
+        <item>Дворец спорта</item>
+        <item>Кловская</item>
+        <item>Печерская</item>
+        <item>Дружбы народов</item>
+        <item>Выдубичи</item>
+        <item>Славути</item>
+        <item>Осокорки</item>
+        <item>Позняки</item>
+        <item>Харьковская</item>
+        <item>Вырлица</item>
+        <item>Бориспольская</item>
+        <item>Красный хутор</item>
+    </string-array>
+
+</resources>
