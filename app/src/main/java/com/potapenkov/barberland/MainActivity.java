@@ -12,10 +12,10 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -35,9 +35,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -72,7 +71,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -82,9 +80,7 @@ import java.util.Locale;
 
 import static android.graphics.BitmapFactory.decodeStream;
 
-public class MainActivity extends Activity  implements
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener
-{
+public class MainActivity extends Activity  {
     private LatLng defaultLatLng=new LatLng(50.520830, 30.606008);
     private LatLng startCoord;
     private int currentViewId=0;
@@ -95,9 +91,9 @@ public class MainActivity extends Activity  implements
     private ArrayList<MyMarker> mMyMarkersArray = new ArrayList<MyMarker>();
     private HashMap<Marker, MyMarker> mMarkersHashMap;
     private Typeface tf;
-    private Uri picUri;
+
     private Uri mImageCaptureUri;
-    private ImageView mImageView;
+
     private File sourceFile;
     private static final int PICK_FROM_CAMERA = 1;
     private static final int CROP_FROM_CAMERA = 2;
@@ -105,11 +101,11 @@ public class MainActivity extends Activity  implements
     AlertDialog.Builder builder;
     public ProgressBar progressBar;
     private String uploadedFilePath=null;
-    private HttpResponse response;
+
     private String barberPassword;
     private String clientPin;
     private GoogleApiClient mGoogleApiClient;
-    private Location mLastLocation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -164,39 +160,7 @@ public class MainActivity extends Activity  implements
         });
     }
 
-    protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-    }
 
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        Log.v("onConnected","onConnected method");
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
-                mGoogleApiClient);
-        if (mLastLocation != null) {
-            Log.v("onConnected","got location");
-            defaultLatLng=new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-            if(currentViewId==R.layout.activity_main)
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude()), 15));
-
-
-        }
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-        Log.v("conn", "suspended");
-    }
-
-    public void searchGPS(View v){
-
-        showMap(defaultLatLng);
-    }
 
     public void newCrop(View v){
         final AlertDialog dialog = builder.create();
@@ -752,24 +716,6 @@ public class MainActivity extends Activity  implements
         showPin();
     }
 
-    public  Drawable LoadImageFromWebOperations(String urlString) {
-        try {
-            URL url=new URL(UPLOADED_IMAGE_PATH+urlString);
-            InputStream is = (InputStream) url.getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            Log.v("zzzb", "zzzb "+url.toString()+"|"+is.toString());
-            return d;
-        } catch (Exception e) {
-            Log.v("zzzb", "zzzb "+e.getMessage());
-            return null;
-        }
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
-
     public class JSONParser extends AsyncTask<Void, Integer, String> {
           private String responseString;
         private JSONObject dataToSend;
@@ -836,19 +782,25 @@ public class MainActivity extends Activity  implements
                 if (res.length() > 3)
                     res = res.substring(3);
                 super.onPostExecute(res);
-
+                JSONObject jo = null;
                 //Log.v("pin", "pinv\n" + res + "|" + cleanString(res));
                 if (res.length() > 16)
                     if (dataToSend == null) {
                         try {
-                            barbers = new JSONObject(res);
-                            setUpMap(startCoord);
+                            jo=new JSONObject(res);
+
+                            barbers = jo;
+
+
                             //thanks(null);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }catch (NullPointerException e){
+                            e.printStackTrace();
                             showToast("start_coord not set");
+                            //Log.v("null", "null "+jo);
                         }
+                        setUpMap();
                     } else showAlert(res);
                 else {
                     SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -867,6 +819,7 @@ public class MainActivity extends Activity  implements
                     editor.commit();
                 }
             }catch(NullPointerException e){
+                e.printStackTrace();
                 Toast.makeText(getApplicationContext(), "Нет связи с интернетом", Toast.LENGTH_SHORT).show();
                 if(currentViewId==R.layout.get_client_name)
                     onBackPressed();
@@ -1193,17 +1146,13 @@ public class MainActivity extends Activity  implements
 
                 Marker currentMarker = mMap.addMarker(markerOption);
                 mMarkersHashMap.put(currentMarker, myMarker);
-
                 mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter());
             }
         }
     }
 
 
-
-
-    private void setUpMap(LatLng coord)
-    {
+    private void getBarbersFromServer(){
         mMarkersHashMap = new HashMap<Marker, MyMarker>();
         try {
             JSONObject arr;
@@ -1218,7 +1167,7 @@ public class MainActivity extends Activity  implements
 
                 String qualifString=cleanString(arr.getString("qualification"));
 
-                Log.v("json_barbers", "jbb "+qualifString+"|"+specs[0]);
+                //Log.v("json_barbers", "jbb "+qualifString+"|"+specs[0]);
                 int qualif=MyMarker.mBARBER;
                 if(qualifString.equalsIgnoreCase("парикмахер")) qualif=MyMarker.mBARBER;  else
                 if(qualifString.equalsIgnoreCase("стилист"))qualif=MyMarker.mSTYLIST; else
@@ -1226,7 +1175,7 @@ public class MainActivity extends Activity  implements
 
                 final Bitmap[] bitmap=new Bitmap[1];
                 final JSONObject finalArr = arr;
-                final String photoPath=arr.getString("photo_path");
+                //final String photoPath=arr.getString("photo_path");
                 final MyMarker tmpMarker=new MyMarker(arr.getString("name")+" "+arr.getString("second_name"),
                         arr.getString("photo_path"),
                         arr.getString("phone_number"),
@@ -1242,7 +1191,6 @@ public class MainActivity extends Activity  implements
                     protected Void doInBackground(Void... params) {
                         try {
                             InputStream in = new URL(UPLOADED_IMAGE_PATH+cleanString(finalArr.getString("photo_path"))).openStream();
-
                             bitmap[0] = decodeStream(in);
                         } catch (Exception e) {e.printStackTrace();}
                         return null;
@@ -1250,7 +1198,6 @@ public class MainActivity extends Activity  implements
                     @Override
                     protected void onPostExecute(Void result) {
                         if (bitmap[0] != null)
-
                             tmpMarker.setmBitmap(bitmap[0]);
                         //Log.v("zzza", "zzza " +"|" + UPLOADED_IMAGE_PATH + cleanString(photoPath));
                     }
@@ -1258,12 +1205,28 @@ public class MainActivity extends Activity  implements
 
                 mMyMarkersArray.add(tmpMarker);
             }
-
             //Log.v("arr", "barbers "+arr);
         } catch (JSONException e) {
             e.printStackTrace();
             //Log.v("barbersFromJSON", "zzza Error");
         }
+    }
+
+
+    private final LocationListener mLocationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(final Location location) {
+            //your code here
+        }
+    };
+
+
+    
+
+    private void setUpMap()
+    {
+        Log.v("setupMap", "seupMap was called");
+        getBarbersFromServer();
 
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null)
@@ -1273,7 +1236,15 @@ public class MainActivity extends Activity  implements
 
             // Check if we were successful in obtaining the map.
             mMap.setMyLocationEnabled(true);
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coord, 15));
+
+            if(mMap.getMyLocation()!=null){
+                Log.v("myLoc", "myLoc "+mMap.getMyLocation().getLatitude()+"|"+mMap.getMyLocation().getLongitude());
+            }
+            //
+           // if(startCoord!=null)
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startCoord, 15));
+            //else mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mMap.getMyLocation().getLatitude(),
+                                                                       //       mMap.getMyLocation().getLongitude()),12));
             if (mMap != null)
             {
                 mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
@@ -1294,19 +1265,14 @@ public class MainActivity extends Activity  implements
 
     public class MarkerInfoWindowAdapter implements GoogleMap.InfoWindowAdapter
     {
-        public MarkerInfoWindowAdapter()
-        {
-        }
-
+        public MarkerInfoWindowAdapter(){}
         @Override
         public View getInfoWindow(Marker marker)
         {
             return null;
         }
-
         @Override
-        public View getInfoContents(Marker marker)
-        {
+        public View getInfoContents(Marker marker){
             final View v  = getLayoutInflater().inflate(R.layout.infowindow_layout, null);
             final MyMarker myMarker = mMarkersHashMap.get(marker);
             final ImageView markerIcon = (ImageView) v.findViewById(R.id.marker_icon);
@@ -1324,23 +1290,18 @@ public class MainActivity extends Activity  implements
             markerLabel.    setText(myMarker.getmLabel());
             phone_number.   setText(myMarker.getPhoneNumber());
             sheduleText.    setText(myMarker.getmShedule());
-
-
-            return v;
+           return v;
         }
     }
 
     public void showHelp(View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("").setTitle("Квалификация")
+        builder.setTitle("Квалификация")
                 .setCancelable(false)
                 .setPositiveButton("Понятно", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // do nothing
                     }
                 });
-
-
         LinearLayout view = (LinearLayout) getLayoutInflater()
                 .inflate(R.layout.help, null);
         builder.setView(view);
@@ -1354,16 +1315,10 @@ public class MainActivity extends Activity  implements
     class UploadFileToServer extends AsyncTask<Void, Integer, String> {
         // File upload url (replace the ip with your server address)
         public static final String FILE_UPLOAD_URL = "http://barberland.in.ua/upload/fileUpload.php";
-
         // Directory name to store captured images and videos
         public static final String IMAGE_DIRECTORY_NAME = "Android File Upload";
-
-
         private String filePath = null;
-
         long totalSize = 0;
-
-
         @Override
         protected void onPreExecute() {
             // setting progress bar to zero
@@ -1454,8 +1409,15 @@ public class MainActivity extends Activity  implements
 
     }
 
+    public void searchGPS(View v){
+        LocationManager mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-    public void metroClickLitener(View v){
+        //mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0xc8,200.0, mLocationListener);
+        showMap(null);
+        //mMap.getMyLocation();
+    }
+
+    public void searchMetro(View v){
         Spinner mySpinner = (Spinner) findViewById(R.id.metro_spinner);
         String strChoose = mySpinner.getSelectedItem().toString();
 
@@ -1463,18 +1425,19 @@ public class MainActivity extends Activity  implements
         List<Address> addresses = null;
         try {
             addresses = geocoder.getFromLocationName("метро " + strChoose, 1);
+            Address address = addresses.get(0);
+            if(addresses.size() > 0) {
+                double latitude = addresses.get(0).getLatitude();
+                double longitude = addresses.get(0).getLongitude();
+                //Log.v("metro", "metro "+latitude);
+                showMap(new LatLng(latitude, longitude));
+
+            }
         } catch (IOException e) {
             e.printStackTrace();
+        }catch (NullPointerException e){
+            showToast("Неправильный адрес метро");
         }
-        Address address = addresses.get(0);
-        if(addresses.size() > 0) {
-            double latitude = addresses.get(0).getLatitude();
-            double longitude = addresses.get(0).getLongitude();
-           showMap(new LatLng(latitude, longitude));
-
-        }
-
-
     }
 
 
