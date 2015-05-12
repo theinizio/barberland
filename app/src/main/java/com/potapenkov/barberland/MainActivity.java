@@ -892,6 +892,15 @@ public class MainActivity extends Activity  {
                                                       Double.parseDouble(lastBarber.getString("home_long")));
                                 barbers = j;
                                 setUpMap();
+                            }else if(dataToSend.get("dataType") == "searchBarberQualification") {
+                                setContentView(R.layout.activity_main);
+                                currentViewId=R.layout.activity_main;
+                                JSONObject j=new JSONObject(res);
+                                JSONObject lastBarber = j.getJSONObject(""+j.length());
+                                startCoord=new LatLng(Double.parseDouble(lastBarber.getString("home_lat")),
+                                        Double.parseDouble(lastBarber.getString("home_long")));
+                                barbers = j;
+                                setUpMap();
                             }else showAlert(res);
                         } catch (JSONException e) {
                             e.printStackTrace();
