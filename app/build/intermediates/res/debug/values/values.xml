@@ -56,6 +56,15 @@
         <item>Бориспольская</item>
         <item>Красный хутор</item>
     </string-array>
+    <string-array name="qualifications_list">
+        <item>мастер</item>
+        <item>стилист</item>
+        <item>парикмахер</item>
+    </string-array>
+    <string-array name="specializations_list">
+        <item>Стрижки мужские</item>
+        <item>Стрижки женские</item>
+    </string-array>
     <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/common_colors.xml -->
     <eat-comment/>
     <color name="common_action_bar_splitter">#d2d2d2</color>
@@ -160,6 +169,16 @@ available. Please contact the developer for assistance.</string>
     <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="SpinnerDropDownItem">
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:background">#ffffff</item>
+    </style>
+    <style name="SpinnerItem">
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:background">#ffffff</item>
+    </style>
     <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/res/values/admob_iap_style.xml -->
     <eat-comment/>
     <style name="Theme.IAPTheme" parent="android:Theme">
@@ -209,7 +228,8 @@ available. Please contact the developer for assistance.</string>
     <style name="light6" parent="android:style/Theme.Light">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
-
-
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>
     </style>
 </resources>

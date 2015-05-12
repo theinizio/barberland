@@ -10,6 +10,8 @@ package com.potapenkov.barberland;
 public final class R {
     public static final class array {
         public static final int metro_list=0x7f050000;
+        public static final int qualifications_list=0x7f050001;
+        public static final int specializations_list=0x7f050002;
     }
     public static final class attr {
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -459,7 +461,7 @@ containing a value of this type.
         public static final int text_ramka=0x7f02003e;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c008f;
+        public static final int action_settings=0x7f0c009a;
         public static final int adjust_height=0x7f0c0002;
         public static final int adjust_width=0x7f0c0003;
         public static final int barberName=0x7f0c0033;
@@ -471,17 +473,21 @@ containing a value of this type.
         public static final int book_now=0x7f0c0011;
         public static final int button=0x7f0c0075;
         public static final int button12=0x7f0c0079;
-        public static final int button13=0x7f0c007d;
-        public static final int button2=0x7f0c0081;
+        public static final int button13=0x7f0c0089;
+        public static final int button2=0x7f0c0086;
         public static final int button22=0x7f0c007a;
-        public static final int button23=0x7f0c007e;
+        public static final int button23=0x7f0c008a;
         public static final int button3=0x7f0c0076;
         public static final int button32=0x7f0c007b;
-        public static final int button33=0x7f0c007f;
+        public static final int button33=0x7f0c008b;
         public static final int buyButton=0x7f0c000d;
         public static final int buy_now=0x7f0c0012;
         public static final int buy_with_google=0x7f0c0013;
-        public static final int checkBox=0x7f0c008d;
+        public static final int by_location_text=0x7f0c0074;
+        public static final int by_master_text=0x7f0c007c;
+        public static final int by_salon_text=0x7f0c0078;
+        public static final int by_time_text=0x7f0c0083;
+        public static final int checkBox=0x7f0c0098;
         public static final int classic=0x7f0c0015;
         public static final int clientName=0x7f0c0020;
         public static final int client_phone_number=0x7f0c0023;
@@ -492,13 +498,13 @@ containing a value of this type.
         public static final int evenOpenTime=0x7f0c0043;
         public static final int fridayFinishTime=0x7f0c005d;
         public static final int fridayOpenTime=0x7f0c005b;
-        public static final int get_name_back=0x7f0c0085;
+        public static final int get_name_back=0x7f0c0090;
         public static final int grayscale=0x7f0c0016;
         public static final int helpLayout=0x7f0c0024;
         public static final int holo_dark=0x7f0c0008;
         public static final int holo_light=0x7f0c0009;
         public static final int hybrid=0x7f0c0004;
-        public static final int imageButton=0x7f0c008b;
+        public static final int imageButton=0x7f0c0096;
         public static final int imageButton2=0x7f0c001a;
         public static final int imageView=0x7f0c0029;
         public static final int imageView1=0x7f0c001d;
@@ -534,13 +540,16 @@ containing a value of this type.
         public static final int marker_icon=0x7f0c002c;
         public static final int marker_label=0x7f0c002e;
         public static final int marker_layout=0x7f0c002b;
+        public static final int master_name_button=0x7f0c007d;
+        public static final int master_qualification_button=0x7f0c0081;
+        public static final int master_specialization_button=0x7f0c007f;
         public static final int match_parent=0x7f0c000f;
         public static final int metro_spinner=0x7f0c0077;
         public static final int mondayFinishTime=0x7f0c004d;
         public static final int mondayOpenTime=0x7f0c004b;
         public static final int monochrome=0x7f0c0017;
-        public static final int newBarberButton=0x7f0c0087;
-        public static final int newClientButton=0x7f0c0086;
+        public static final int newBarberButton=0x7f0c0092;
+        public static final int newClientButton=0x7f0c0091;
         public static final int none=0x7f0c0000;
         public static final int normal=0x7f0c0005;
         public static final int o1=0x7f0c0048;
@@ -554,9 +563,10 @@ containing a value of this type.
         public static final int plus38_2=0x7f0c0039;
         public static final int production=0x7f0c000a;
         public static final int progressBar=0x7f0c0038;
-        public static final int progressBar2=0x7f0c008e;
+        public static final int progressBar2=0x7f0c0099;
         public static final int qualification=0x7f0c0066;
         public static final int qualificationGrid=0x7f0c0067;
+        public static final int qualification_spinner=0x7f0c0082;
         public static final int regForm=0x7f0c0032;
         public static final int salonName=0x7f0c003d;
         public static final int salonText=0x7f0c003c;
@@ -567,6 +577,7 @@ containing a value of this type.
         public static final int satellite=0x7f0c0006;
         public static final int saturdayFinishTime=0x7f0c0061;
         public static final int saturdayOpenTime=0x7f0c005f;
+        public static final int search_barber_name=0x7f0c007e;
         public static final int search_layout=0x7f0c0072;
         public static final int selectionDetails=0x7f0c000e;
         public static final int sheduleGrid=0x7f0c0041;
@@ -574,29 +585,31 @@ containing a value of this type.
         public static final int slide=0x7f0c0001;
         public static final int specializationGrid=0x7f0c006c;
         public static final int specializationText=0x7f0c006b;
+        public static final int specialization_spinner=0x7f0c0080;
         public static final int specializations=0x7f0c0031;
-        public static final int spinnerdropdown=0x7f0c0084;
-        public static final int spinnertext=0x7f0c0083;
+        public static final int spinnerdropdown=0x7f0c008f;
+        public static final int spinnertext=0x7f0c008e;
         public static final int station_info_layout=0x7f0c002d;
         public static final int strict_sandbox=0x7f0c000c;
         public static final int sundayFinishTime=0x7f0c0065;
         public static final int sundayOpenTime=0x7f0c0063;
         public static final int terrain=0x7f0c0007;
-        public static final int textView=0x7f0c0088;
-        public static final int textView2=0x7f0c0089;
-        public static final int textView3=0x7f0c008a;
-        public static final int textView4=0x7f0c008c;
+        public static final int textView=0x7f0c0093;
+        public static final int textView2=0x7f0c0094;
+        public static final int textView3=0x7f0c0095;
+        public static final int textView4=0x7f0c0097;
         public static final int textView5=0x7f0c002a;
         public static final int textView6=0x7f0c0073;
         public static final int textView7=0x7f0c0028;
         public static final int textView8=0x7f0c0026;
-        public static final int textView9=0x7f0c0074;
-        public static final int textView91=0x7f0c0078;
-        public static final int textView92=0x7f0c007c;
-        public static final int textView93=0x7f0c0080;
+        public static final int textView9=0x7f0c0085;
+        public static final int textView91=0x7f0c0087;
+        public static final int textView92=0x7f0c0088;
+        public static final int textView93=0x7f0c008c;
         public static final int thursdayFinishTime=0x7f0c0059;
         public static final int thursdayOpenTime=0x7f0c0057;
-        public static final int timePicker=0x7f0c0082;
+        public static final int timePicker=0x7f0c008d;
+        public static final int timePicker2=0x7f0c0084;
         public static final int tuesdayFinishTime=0x7f0c0051;
         public static final int tuesdayOpenTime=0x7f0c004f;
         public static final int tv_name=0x7f0c001c;
@@ -673,12 +686,14 @@ containing a value of this type.
         public static final int wallet_buy_button_place_holder=0x7f090029;
     }
     public static final class style {
-        public static final int Theme_IAPTheme=0x7f0a0000;
-        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0a0001;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0a0002;
-        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0a0003;
-        public static final int WalletFragmentDefaultStyle=0x7f0a0004;
-        public static final int light6=0x7f0a0005;
+        public static final int SpinnerDropDownItem=0x7f0a0000;
+        public static final int SpinnerItem=0x7f0a0001;
+        public static final int Theme_IAPTheme=0x7f0a0002;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0a0003;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0a0004;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0a0005;
+        public static final int WalletFragmentDefaultStyle=0x7f0a0006;
+        public static final int light6=0x7f0a0007;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.

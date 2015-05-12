@@ -68,6 +68,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -91,7 +92,8 @@ public class MainActivity extends Activity  {
     private ArrayList<MyMarker> mMyMarkersArray = new ArrayList<MyMarker>();
     private HashMap<Marker, MyMarker> mMarkersHashMap;
     private Typeface tf;
-
+    private ArrayAdapter<String> specializationsAdapter;
+    private ArrayAdapter<String> qualificationsAdapter;
     private Uri mImageCaptureUri;
 
     private File sourceFile;
@@ -126,6 +128,11 @@ public class MainActivity extends Activity  {
 
         setContentView(R.layout.search);
         currentViewId=R.layout.start_page;
+
+        customizeSpinner();
+
+
+
         final String [] items			= new String [] {"Из камеры", "Из галереи"};
         ArrayAdapter<String> adapter	= new ArrayAdapter<String> (this, android.R.layout.select_dialog_item,items);
          builder		= new AlertDialog.Builder(this);
@@ -160,7 +167,47 @@ public class MainActivity extends Activity  {
         });
     }
 
+    private void customizeSpinner(){
 
+
+        Spinner metroSpinner   = (Spinner)findViewById(R.id.metro_spinner);
+        Spinner specializationsSpinner = (Spinner)findViewById(R.id.specialization_spinner);
+        Spinner qualificationsSpinner  = (Spinner)findViewById(R.id.qualification_spinner);
+        TextView spin = (TextView) findViewById(R.id.spinnertext);
+        //spin.setTypeface(tf);
+
+        //spin=null;
+        ArrayAdapter<CharSequence> metroAdapter =
+                ArrayAdapter.createFromResource(this, R.array.metro_list, R.layout.simple_spinner);
+        metroAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        metroSpinner.setAdapter(metroAdapter);
+
+        specializationsAdapter = new ArrayAdapter<String>(this,R.layout.simple_spinner);
+        specializationsAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        specializationsSpinner.setAdapter(specializationsAdapter);
+        qualificationsAdapter = new ArrayAdapter<String>(this,R.layout.simple_spinner);
+        qualificationsAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        qualificationsSpinner.setAdapter(qualificationsAdapter);
+
+        getSpecializationsAndQualifications();
+        //spin.setTypeface(tf);
+        spin= (TextView)findViewById(R.id.spinnerdropdown);
+        //spin.setTypeface(tf);
+
+
+    }
+
+
+    private void getSpecializationsAndQualifications(){
+        JSONObject jo=new JSONObject();
+        try {
+            jo.put("dataType", "specAndQualif");
+            JSONParser qualifAndSpecs = new JSONParser(jo);
+            qualifAndSpecs.execute();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void newCrop(View v){
         final AlertDialog dialog = builder.create();
@@ -351,7 +398,9 @@ public class MainActivity extends Activity  {
         }
     }
 
-
+    public String cleanString(String dirty) {
+        return Html.fromHtml(dirty).toString();
+    }
 
     public void newClient(View v){
         setContentView(R.layout.get_client_name);
@@ -369,7 +418,34 @@ public class MainActivity extends Activity  {
         plus38.setTypeface(tf);
 
     }
-    
+
+    public void savePhoneAndName(View v){
+        TextView clientName =(TextView)findViewById(R.id.clientName);
+        TextView clientPhone=(TextView)findViewById(R.id.client_phone_number);
+        String clientPhoneText="+38"+cleanString(clientPhone.getText().toString());
+        if(checkNameAndPhone(cleanString(clientName.getText().toString()), clientPhoneText)){
+            SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("clientName",  cleanString(clientName. getText().toString()));
+            editor.putString("clientPhone", cleanString(clientPhone.getText().toString()));
+            editor.commit();
+            JSONObject jo=new JSONObject();
+            try {
+                jo.put("dataType", "client");jo.put("clientName", cleanString(clientName. getText().toString()));
+                jo.put("clientPhone", clientPhoneText);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            JSONParser mJSONParser = new JSONParser(jo);
+            mJSONParser.execute();
+            showPin();
+        }
+    }
+
+
+
+
+
     public void newBarber(View v){
         setContentView(R.layout.new_barber);
         currentViewId=R.layout.new_barber;
@@ -483,12 +559,6 @@ public class MainActivity extends Activity  {
         tvOddFinishTime=        (TextView) findViewById(R.id.oddFinishTime);
         tvEvenOpenTime=          (TextView) findViewById(R.id.evenOpenTime);
         tvEvenFinishTime=        (TextView) findViewById(R.id.evenFinishTime);
-
-    }
-
-    public String cleanString(String dirty) {
-
-        return Html.fromHtml(dirty).toString();
 
     }
 
@@ -785,23 +855,48 @@ public class MainActivity extends Activity  {
                 JSONObject jo = null;
                 //Log.v("pin", "pinv\n" + res + "|" + cleanString(res));
                 if (res.length() > 16)
-                    if (dataToSend == null) {
+                    try {
+                        jo=new JSONObject(res);
+                    }catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if (dataToSend == null){
+                        barbers = jo;
+                        setUpMap();
+                    } else if(dataToSend!=null) {
                         try {
-                            jo=new JSONObject(res);
 
-                            barbers = jo;
+                            if (dataToSend.get("dataType") == "specAndQualif") {
+                                JSONArray specsJ=jo.getJSONArray("specializations");
+                                if(specializationsAdapter!=null) {
+                                    for (int j = 1; j < specsJ.length(); j++) {
+                                        specializationsAdapter.add((String)specsJ.get(j));
+                                    }
+                                    specializationsAdapter.notifyDataSetChanged();
+                                }
 
-
-                            //thanks(null);
+                                JSONArray qualsJ=jo.getJSONArray("qualifications");
+                                if(qualificationsAdapter!=null){
+                                    for(int j=1;j<qualsJ.length();j++){
+                                        qualificationsAdapter.add((String)qualsJ.get(j));
+                                    }
+                                    qualificationsAdapter.notifyDataSetChanged();
+                                }
+                                //Log.v("specs", "specs" + specs[2]);
+                            } else if(dataToSend.get("dataType") == "searchBarberName") {
+                                setContentView(R.layout.activity_main);
+                                currentViewId=R.layout.activity_main;
+                                JSONObject j=new JSONObject(res);
+                                JSONObject lastBarber = j.getJSONObject(""+j.length());
+                                startCoord=new LatLng(Double.parseDouble(lastBarber.getString("home_lat")),
+                                                      Double.parseDouble(lastBarber.getString("home_long")));
+                                barbers = j;
+                                setUpMap();
+                            }else showAlert(res);
                         } catch (JSONException e) {
                             e.printStackTrace();
-                        }catch (NullPointerException e){
-                            e.printStackTrace();
-                            showToast("start_coord not set");
-                            //Log.v("null", "null "+jo);
                         }
-                        setUpMap();
-                    } else showAlert(res);
+                    }
                 else {
                     SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                     SharedPreferences.Editor editor = settings.edit();
@@ -1048,28 +1143,7 @@ public class MainActivity extends Activity  {
         }
     }
 
-    public void savePhoneAndName(View v){
-        TextView clientName =(TextView)findViewById(R.id.clientName);
-        TextView clientPhone=(TextView)findViewById(R.id.client_phone_number);
-        String clientPhoneText="+38"+cleanString(clientPhone.getText().toString());
-    	if(checkNameAndPhone(cleanString(clientName.getText().toString()), clientPhoneText)){
-            SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString("clientName",  cleanString(clientName. getText().toString()));
-            editor.putString("clientPhone", cleanString(clientPhone.getText().toString()));
-            editor.commit();
-            JSONObject jo=new JSONObject();
-            try {
-                jo.put("dataType", "client");jo.put("clientName", cleanString(clientName. getText().toString()));
-                jo.put("clientPhone", clientPhoneText);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            JSONParser mJSONParser = new JSONParser(jo);
-            mJSONParser.execute();
-    		showPin();
-        }
-    }
+
     private void showPin(){
         setContentView(R.layout.enter_pin);
         currentViewId=R.layout.enter_pin;
@@ -1424,7 +1498,7 @@ public class MainActivity extends Activity  {
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         List<Address> addresses = null;
         try {
-            addresses = geocoder.getFromLocationName("метро " + strChoose, 1);
+            addresses = geocoder.getFromLocationName("метро " + strChoose+ "Киев", 1);
             Address address = addresses.get(0);
             if(addresses.size() > 0) {
                 double latitude = addresses.get(0).getLatitude();
@@ -1440,10 +1514,47 @@ public class MainActivity extends Activity  {
         }
     }
 
+    public void searchBarberName(View v){
+        TextView bn = (TextView) findViewById(R.id.search_barber_name);
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("dataType","searchBarberName");
+            jo.put("barberNameToSearch",cleanString(bn.getText().toString()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        new JSONParser(jo).execute();
 
-    /**
-     * Method to show alert dialog
-     * */
+    }
+
+    public void searchBarberQualification(View v){
+        Spinner qs = (Spinner) findViewById(R.id.qualification_spinner);
+        Log.v("qualification_selected", "qualification_selected "+qs.getSelectedItem());
+
+    }
+
+    public void searchBarberSpecialization(View v){
+        Spinner ss = (Spinner) findViewById(R.id.specialization_spinner);
+        Log.v("specialization_selected", "specialization_selected "+ss.getSelectedItem());
+    }
+
+
+    public void searchSalonName(View v){
+
+    }
+
+    public void searchSalonPrices(View v){
+
+    }
+
+    public void searchSalonServices(View v){
+
+    }
+
+    public void searchByTime(View v){
+
+    }
+
     private void showAlert(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message).setTitle("Ответ сервера")

@@ -6,6 +6,16 @@
     <string name="action_settings">Settings</string>
     <string name="enter_name">Введите имя</string>
 
+    <string-array name="specializations_list">
+        <item>Стрижки мужские</item>
+        <item>Стрижки женские</item>
+    </string-array>
+
+    <string-array name="qualifications_list">
+        <item>мастер</item>
+        <item>стилист</item>
+        <item>парикмахер</item>
+    </string-array>
 
     <string-array name="metro_list">
         <item>Академгородок</item>
