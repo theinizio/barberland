@@ -33,6 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -74,6 +75,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -867,41 +869,37 @@ public class MainActivity extends Activity  {
                         try {
 
                             if (dataToSend.get("dataType") == "specAndQualif") {
-                                JSONArray specsJ=jo.getJSONArray("specializations");
-                                if(specializationsAdapter!=null) {
+                                JSONArray specsJ = jo.getJSONArray("specializations");
+                                if (specializationsAdapter != null) {
                                     for (int j = 1; j < specsJ.length(); j++) {
-                                        specializationsAdapter.add((String)specsJ.get(j));
+                                        specializationsAdapter.add((String) specsJ.get(j));
                                     }
                                     specializationsAdapter.notifyDataSetChanged();
                                 }
 
-                                JSONArray qualsJ=jo.getJSONArray("qualifications");
-                                if(qualificationsAdapter!=null){
-                                    for(int j=1;j<qualsJ.length();j++){
-                                        qualificationsAdapter.add((String)qualsJ.get(j));
+                                JSONArray qualsJ = jo.getJSONArray("qualifications");
+                                if (qualificationsAdapter != null) {
+                                    for (int j = 1; j < qualsJ.length(); j++) {
+                                        qualificationsAdapter.add((String) qualsJ.get(j));
                                     }
                                     qualificationsAdapter.notifyDataSetChanged();
                                 }
                                 //Log.v("specs", "specs" + specs[2]);
-                            } else if(dataToSend.get("dataType") == "searchBarberName") {
-                                setContentView(R.layout.activity_main);
-                                currentViewId=R.layout.activity_main;
-                                JSONObject j=new JSONObject(res);
-                                JSONObject lastBarber = j.getJSONObject(""+j.length());
-                                startCoord=new LatLng(Double.parseDouble(lastBarber.getString("home_lat")),
-                                                      Double.parseDouble(lastBarber.getString("home_long")));
-                                barbers = j;
-                                setUpMap();
-                            }else if(dataToSend.get("dataType") == "searchBarberQualification") {
-                                setContentView(R.layout.activity_main);
-                                currentViewId=R.layout.activity_main;
-                                JSONObject j=new JSONObject(res);
-                                JSONObject lastBarber = j.getJSONObject(""+j.length());
-                                startCoord=new LatLng(Double.parseDouble(lastBarber.getString("home_lat")),
-                                        Double.parseDouble(lastBarber.getString("home_long")));
-                                barbers = j;
-                                setUpMap();
-                            }else showAlert(res);
+                            } else {
+                                String dataType=(String) dataToSend.get("dataType");
+                                if ( dataType.contains("search")) {
+                                    //Log.v("test","qual_id="+res);
+                                    hideKeyboard();
+                                    setContentView(R.layout.activity_main);
+                                    currentViewId = R.layout.activity_main;
+                                    JSONObject j = new JSONObject(res);
+                                    JSONObject lastBarber = j.getJSONObject("" + j.length());
+                                    startCoord = new LatLng(Double.parseDouble(lastBarber.getString("home_lat")),
+                                            Double.parseDouble(lastBarber.getString("home_long")));
+                                    barbers = j;
+                                    setUpMap();
+                                } else showAlert(res);
+                        }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -1182,15 +1180,20 @@ public class MainActivity extends Activity  {
             if (pinText.length() != 4 || Integer.parseInt(pinText) != Integer.parseInt(clientPin)) {
                 Toast.makeText(getApplicationContext(), "Неправильный пин-код", Toast.LENGTH_SHORT).show();
             } else {
-                View vf=this.getCurrentFocus();
-                if(vf!=null) {
-                    InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputManager.hideSoftInputFromWindow(vf.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                }
+                hideKeyboard();
                 setContentView(R.layout.thanks);
                 currentViewId = R.layout.thanks;
                 showMap(defaultLatLng);
             }
+        }
+    }
+
+
+    private void hideKeyboard(){
+        View vf=this.getCurrentFocus();
+        if(vf!=null) {
+            InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(vf.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
@@ -1538,13 +1541,33 @@ public class MainActivity extends Activity  {
 
     public void searchBarberQualification(View v){
         Spinner qs = (Spinner) findViewById(R.id.qualification_spinner);
-        Log.v("qualification_selected", "qualification_selected "+qs.getSelectedItem());
+        //Log.v("qualification_selected", "qualification_selected "+qs.getSelectedItem());
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("dataType","searchBarberQualification");
+            jo.put("qualificationToSearch",cleanString((String)qs.getSelectedItem()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        new JSONParser(jo).execute();
+
 
     }
 
     public void searchBarberSpecialization(View v){
         Spinner ss = (Spinner) findViewById(R.id.specialization_spinner);
-        Log.v("specialization_selected", "specialization_selected "+ss.getSelectedItem());
+        //Log.v("specialization_selected", "specialization_selected "+ss.getSelectedItem());
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("dataType","searchBarberSpecialization");
+            jo.put("specializationToSearch",cleanString((String)ss.getSelectedItem()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        new JSONParser(jo).execute();
+
+
+
     }
 
 
@@ -1561,7 +1584,10 @@ public class MainActivity extends Activity  {
     }
 
     public void searchByTime(View v){
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker2);
+        timePicker.setIs24HourView(true);
 
+        timePicker.setCurrentHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
     }
 
     private void showAlert(String message) {
