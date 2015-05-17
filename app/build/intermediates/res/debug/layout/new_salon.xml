@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton3"
+            android:src="@drawable/nophoto" />
+
+            <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:hint="Название салона"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="+38"
+                        android:id="@+id/textView10"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/editText2"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/text_size"
+                        android:hint="050..." />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/editText3"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_size"
+            android:hint="Адрес салона" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="График работы"
+        android:id="@+id/textView111"
+        android:textColor="@color/edit_text_color"
+        android:layout_marginTop="8dp"
+        android:background="@color/strip_bg"
+        android:paddingLeft="12dp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sheduleText"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tableLayout" >
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Четные"
+                android:id="@+id/checkBox2"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:checked="true"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/editText4"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText5"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView11" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/editText5"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText6"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Нечетные"
+                android:id="@+id/checkBox3"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:checked="true"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/editText6"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText7"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView12" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/editText7"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText8"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/checkBox4"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="понедельник"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText8"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText9"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView13" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText9"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText10"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/checkBox5"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="вторник"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText10"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText11"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView14" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText11"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText12"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/checkBox6"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="среда"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:id="@+id/editText12"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText13"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView15" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText13"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText14"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/checkBox7"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="четверг"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText14"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText15"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView16" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText15"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText16"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/checkBox8"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="пятница"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText16"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText17"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView17" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText17"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText18"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/checkBox9"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="суббота"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText18"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText19"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView18" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText19"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText20"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/checkBox10"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="воскресенье"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText20"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/editText21"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/textView19" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/editText21"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:onClick="checkShedule" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
+</ScrollView>
+
+
+<!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/new_salon.xml -->

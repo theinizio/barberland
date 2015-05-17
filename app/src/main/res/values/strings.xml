@@ -2,9 +2,11 @@
 <resources>
 
     <string name="app_name">BarberLand</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+    <string name="action_settings">Настройки</string>
     <string name="enter_name">Введите имя</string>
+    <string name="clearAll">Сбросить все настройки</string>
+    <string name="exit">Выход</string>
 
     <string-array name="specializations_list">
         <item>Стрижки мужские</item>

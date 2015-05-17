@@ -47,6 +47,7 @@
             android:maxLength="50"
             android:focusable="true"
             android:layout_gravity="left"
+            android:nextFocusDown="@+id/barber_second_name"
             android:textColorHint="@drawable/required_hint_color_selector" />
 
         <Space
@@ -66,6 +67,7 @@
             android:editable="true"
             android:maxLength="50"
             android:layout_gravity="left"
+            android:nextFocusDown="@+id/barber_email"
             android:textColorHint="@drawable/hint_color_selector" />
 
         <Space
@@ -83,6 +85,7 @@
             android:hint="e-mail"
             android:textColor="@color/edit_text_color"
             android:textSize="@dimen/text_size"
+            android:nextFocusDown="@+id/barber_phone_number"
             android:textColorHint="@drawable/hint_color_selector" />
 
         <Space
@@ -263,7 +266,7 @@
                 android:layout_height="wrap_content"
                 android:text="Четные"
                 android:id="@+id/isEven"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:textSize="@dimen/text_size"
                 android:checked="true"
                 android:onClick="checkShedule" />
@@ -275,12 +278,13 @@
                 android:ems="2"
                 android:id="@+id/evenOpenTime"
                 android:layout_column="2"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/evenFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
                 android:onClick="checkShedule" />
 
@@ -300,12 +304,13 @@
                 android:ems="2"
                 android:id="@+id/evenFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"
                 android:textSize="@dimen/text_size"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/oddOpenTime"
                 android:onClick="checkShedule" />
         </TableRow>
 
@@ -319,7 +324,7 @@
                     android:layout_height="wrap_content"
                     android:text="Нечетные"
                     android:id="@+id/isOdd"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/text"
                     android:textSize="@dimen/text_size"
                     android:checked="true"
                     android:onClick="checkShedule" />
@@ -331,12 +336,13 @@
                     android:ems="2"
                     android:id="@+id/oddOpenTime"
                     android:layout_column="2"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/text"
                     android:hint="9"
                     android:maxWidth="20dp"
                     android:textSize="@dimen/text_size"
                     android:gravity="center"
                     android:maxLength="2"
+                    android:nextFocusDown="@+id/oddFinishTime"
                     android:textColorHint="@drawable/hint_color_selector"
                     android:onClick="checkShedule" />
 
@@ -356,12 +362,13 @@
                     android:ems="2"
                     android:id="@+id/oddFinishTime"
                     android:textColorHint="@drawable/hint_color_selector"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/text"
                     android:gravity="center"
                     android:singleLine="true"
                     android:hint="18"
                     android:textSize="@dimen/text_size"
                     android:maxLength="2"
+                    android:nextFocusDown="@+id/mondayOpenTime"
                     android:onClick="checkShedule" />
             </TableRow>
 
@@ -373,7 +380,7 @@
                 android:id="@+id/isMonday"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="понедельник"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
@@ -389,12 +396,13 @@
                 android:ems="2"
                 android:id="@+id/mondayOpenTime"
                 android:layout_column="2"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/mondayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
                 android:onClick="checkShedule" />
 
@@ -415,12 +423,13 @@
                 android:ems="2"
                 android:id="@+id/mondayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"
                 android:textSize="@dimen/text_size"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/tuesdayOpenTime"
                 android:onClick="checkShedule" />
         </TableRow>
         <TableRow android:layout_width="wrap_content"
@@ -431,7 +440,7 @@
                 android:id="@+id/isTuesday"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="вторник"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
@@ -448,12 +457,13 @@
                 android:id="@+id/tuesdayOpenTime"
                 android:layout_column="2"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/tuesdayFinishTime"
                 android:onClick="checkShedule" />
 
             <TextView
@@ -473,12 +483,13 @@
                 android:ems="2"
                 android:id="@+id/tuesdayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"
                 android:textSize="@dimen/text_size"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/wednesdayOpenTime"
                 android:onClick="checkShedule" />
         </TableRow>
         <TableRow android:layout_width="wrap_content"
@@ -489,7 +500,7 @@
                 android:id="@+id/isWednesday"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="среда"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
@@ -505,12 +516,13 @@
                 android:textColorHint="@drawable/hint_color_selector"
                 android:id="@+id/wednesdayOpenTime"
                 android:layout_column="2"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/wednesdayFinishTime"
                 android:onClick="checkShedule" />
 
             <TextView
@@ -530,12 +542,13 @@
                 android:ems="2"
                 android:id="@+id/wednesdayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"
                 android:textSize="@dimen/text_size"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/thursdayOpenTime"
                 android:onClick="checkShedule" />
         </TableRow>
         <TableRow android:layout_width="wrap_content"
@@ -546,7 +559,7 @@
                 android:id="@+id/isThursday"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="четверг"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
@@ -563,12 +576,13 @@
                 android:id="@+id/thursdayOpenTime"
                 android:layout_column="2"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/thursdayFinishTime"
                 android:onClick="checkShedule" />
 
             <TextView
@@ -589,12 +603,13 @@
                 android:ems="2"
                 android:id="@+id/thursdayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"
                 android:textSize="@dimen/text_size"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/fridayOpenTime"
                 android:onClick="checkShedule" />
         </TableRow>
         <TableRow android:layout_width="wrap_content"
@@ -605,7 +620,7 @@
                 android:id="@+id/isFriday"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="пятница"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
@@ -622,12 +637,13 @@
                 android:id="@+id/fridayOpenTime"
                 android:layout_column="2"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/fridayFinishTime"
                 android:onClick="checkShedule" />
 
             <TextView
@@ -647,12 +663,13 @@
                 android:ems="2"
                 android:id="@+id/fridayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"
                 android:textSize="@dimen/text_size"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/saturdayOpenTime"
                 android:onClick="checkShedule" />
         </TableRow>
         <TableRow android:layout_width="wrap_content"
@@ -663,7 +680,7 @@
                 android:id="@+id/isSaturday"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="суббота"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
@@ -680,12 +697,13 @@
                 android:id="@+id/saturdayOpenTime"
                 android:layout_column="2"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/saturdayFinishTime"
                 android:onClick="checkShedule" />
 
             <TextView
@@ -705,12 +723,13 @@
                 android:ems="2"
                 android:id="@+id/saturdayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"
                 android:textSize="@dimen/text_size"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/sundayOpenTime"
                 android:onClick="checkShedule" />
         </TableRow>
         <TableRow android:layout_width="wrap_content"
@@ -721,7 +740,7 @@
                 android:id="@+id/isSunday"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="воскресенье"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size"
@@ -738,12 +757,13 @@
                 android:id="@+id/sundayOpenTime"
                 android:layout_column="2"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:hint="9"
                 android:maxWidth="20dp"
                 android:textSize="@dimen/text_size"
                 android:gravity="center"
                 android:maxLength="2"
+                android:nextFocusDown="@+id/sundayFinishTime"
                 android:onClick="checkShedule" />
 
             <TextView
@@ -763,7 +783,7 @@
                 android:ems="2"
                 android:id="@+id/sundayFinishTime"
                 android:textColorHint="@drawable/hint_color_selector"
-                android:textColor="@color/edit_text_color"
+                android:textColor="@color/text"
                 android:gravity="center"
                 android:singleLine="true"
                 android:hint="18"

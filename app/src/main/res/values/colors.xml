@@ -3,4 +3,10 @@
      <color name="edit_text_color">#000000</color>
      <color name="strip_bg">#ffe3e3e3</color>
      <color name="required_field_hint_color">#3fe37661</color>
+     <color name="light_gray">#EFE6E6</color>
+
+     <color name="ColorPrimary">#EFE6E6</color>
+     <color name="ColorPrimaryDark">#EFE6E6</color>
+     <color name="tabsScrollColor">#004d40</color>
+
 </resources>

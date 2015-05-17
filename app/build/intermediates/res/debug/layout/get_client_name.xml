@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/text_ramka"
         android:ems="10"
         android:textSize="@dimen/text_size"
@@ -84,6 +84,21 @@
         android:src="@drawable/ok"
         android:layout_below="@+id/phone"
         android:layout_alignRight="@+id/phone" />
+
+    <Space
+        android:layout_width="50dp"
+        android:layout_height="30dp" />
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:text="пропустить"
+        android:id="@+id/skip_button"
+        android:layout_gravity="right"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/ramka"
+        android:textColor="@color/text"
+        android:onClick="skipRegistration" />
 
 </LinearLayout>
 <!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/get_client_name.xml -->

@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sheduleText"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/sheduleGrid"
+        android:onClick="checkShedule">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="checkShedule">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Четные"
+                android:id="@+id/isEven"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:checked="true"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/evenOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/evenFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/e1"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/evenFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/oddOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="checkShedule">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Нечетные"
+                android:id="@+id/isOdd"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:checked="true"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/oddOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/oddFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/o1"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/oddFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/mondayOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkShedule">
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/isMonday"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="понедельник"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/mondayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/mondayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/m1"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/mondayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/tuesdayOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkShedule">
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/isTuesday"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="вторник"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/tuesdayOpenTime"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/tuesdayFinishTime"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/m2"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/tuesdayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/wednesdayOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkShedule">
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/isWednesday"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="среда"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:id="@+id/wednesdayOpenTime"
+                android:layout_column="2"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/wednesdayFinishTime"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/m3"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/wednesdayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/thursdayOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkShedule">
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/isThursday"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="четверг"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/thursdayOpenTime"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/thursdayFinishTime"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/m4"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/thursdayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/fridayOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkShedule">
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/isFriday"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="пятница"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/fridayOpenTime"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/fridayFinishTime"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/m5"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/fridayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/saturdayOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkShedule">
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/isSaturday"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="суббота"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/saturdayOpenTime"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/saturdayFinishTime"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/m6"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/saturdayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/sundayOpenTime"
+                android:onClick="checkShedule" />
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkShedule">
+            <CheckBox
+                android:checked="false"
+                android:enabled="false"
+                android:id="@+id/isSunday"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="воскресенье"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:onClick="checkShedule" />
+
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/sundayOpenTime"
+                android:layout_column="2"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:hint="9"
+                android:maxWidth="20dp"
+                android:textSize="@dimen/text_size"
+                android:gravity="center"
+                android:maxLength="2"
+                android:nextFocusDown="@+id/sundayFinishTime"
+                android:onClick="checkShedule" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="-"
+                android:layout_column="3"
+                android:textColor="@color/edit_text_color"
+                android:id="@+id/m7"
+                android:onClick="checkShedule" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:ems="2"
+                android:id="@+id/sundayFinishTime"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:textColor="@color/text"
+                android:gravity="center"
+                android:singleLine="true"
+                android:hint="18"
+                android:textSize="@dimen/text_size"
+                android:maxLength="2"
+                android:onClick="checkShedule" />
+        </TableRow>
+
+
+
+    </TableLayout>
+</LinearLayout><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/tab_2.xml -->

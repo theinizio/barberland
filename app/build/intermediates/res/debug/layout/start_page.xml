@@ -37,7 +37,7 @@
          
          android:layout_marginTop="300dp"
          android:background="@null"
-         android:onClick="newBarber"
+         android:onClick="barberOrSalon"
          android:src="@drawable/new_barber" />
 
 </RelativeLayout>

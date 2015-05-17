@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff">
+
+    <TextView
+
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:background="@color/strip_bg"
+        android:text="Базовая стрижка"
+        android:id="@+id/prices_base_cut_text"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_size" />
+
+    <TableLayout
+        android:layout_marginLeft="@dimen/defalult_margin_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Мужская -"
+                android:id="@+id/prices_man_cut_text"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/prices_man_cut_price"
+                android:hint="40"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/prices_grn1"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Женская -"
+                android:id="@+id/prices_woman_cut_rext"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/prices_woman_cut_price"
+                android:hint="40"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/prices_grn2"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Укладка -"
+                android:id="@+id/prices_hairdo_text"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/prices_hairdo_price"
+                android:hint="40"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/prices_grn3"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Окрашивание -"
+                android:id="@+id/prices_colorize_text"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/prices_colorize_price"
+                android:hint="40"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/prices_grn4"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size" />
+        </TableRow>
+    </TableLayout>
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/spaceSize"
+        android:id="@+id/saveData" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:onClick="checkNewBarberData"
+        android:src="@drawable/ok"
+        android:background="@null"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/tab_4.xml -->

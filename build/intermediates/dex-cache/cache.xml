@@ -142,6 +142,13 @@
         <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-b21d4360c037f0779e751438eec08857dc9d3427.jar" />
     </item>
     <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-0bda44d0a9d3a10378747605c9282836192d2f90.jar" />
+    </item>
+    <item
         jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"

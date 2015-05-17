@@ -26,6 +26,7 @@
         <activity
             android:name="com.potapenkov.barberland.MainActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +34,50 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+        android:name="com.potapenkov.barberland.NewBarberActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme"
+        android:label="@string/app_name" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity
+            android:name="com.potapenkov.barberland.MapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.potapenkov.barberland.NewClientActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.potapenkov.barberland.SearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCMI5SUqqZr1IrJY8lfcJnfBGTk9DdRVkY"/>
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 

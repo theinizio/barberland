@@ -163,11 +163,9 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:inputType="textCapWords|textPersonName"
             android:ems="10"
             android:id="@+id/search_barber_name"
-            android:minLines="1"
             android:maxLength="50"
             android:textColor="@color/edit_text_color"
             android:textSize="@dimen/text_size"

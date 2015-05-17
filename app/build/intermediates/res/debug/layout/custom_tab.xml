@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spinnertext"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="30dp"
+    android:textColor="@color/edit_text_color"
+    android:autoText="false"
+    android:textIsSelectable="false"
+    android:background="@color/strip_bg" /><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/custom_tab.xml -->

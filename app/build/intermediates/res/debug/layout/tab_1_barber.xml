@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/regForm"
+        android:src="@drawable/reg_form"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+
+    <TableLayout
+        android:layout_below="@+id/regForm"
+        android:id="@+id/barberName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp">
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords|textPersonName"
+                    android:id="@+id/barber_name"
+                    android:hint="Имя"
+                    android:textColor="@color/edit_text_color"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/text_size"
+                    android:editable="true"
+                    android:maxLength="50"
+                    android:focusable="true"
+                    android:layout_gravity="left"
+                    android:nextFocusDown="@+id/barber_second_name"
+                    android:textColorHint="@drawable/required_hint_color_selector"
+                    android:ems="7" />
+
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/spaceSize" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences|textPersonName"
+                    android:id="@+id/barber_second_name"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/edit_text_color"
+                    android:hint="Фамилия"
+                    android:editable="true"
+                    android:maxLength="50"
+                    android:layout_gravity="left"
+                    android:nextFocusDown="@+id/barber_email"
+                    android:textColorHint="@drawable/hint_color_selector"
+                    android:ems="7" />
+
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/spaceSize" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:id="@+id/barber_email"
+                    android:layout_gravity="left"
+                    android:paddingLeft="10dp"
+                    android:hint="e-mail"
+                    android:textColor="@color/edit_text_color"
+                    android:textSize="@dimen/text_size"
+                    android:nextFocusDown="@+id/barber_phone_number"
+                    android:textColorHint="@drawable/hint_color_selector"
+                    android:ems="7" />
+
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/spaceSize" />
+
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/barber_photo"
+                    android:src="@drawable/nophoto"
+                    android:background="@null"
+                    android:onClick="newCrop" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="5dp"
+                    android:id="@+id/progressBar" />
+
+            </LinearLayout>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_span="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="+38"
+                    android:id="@+id/plus38_2"
+                    android:textColor="@color/edit_text_color"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone|numberDecimal"
+                    android:ems="5"
+                    android:id="@+id/barber_phone_number"
+
+                    android:hint="067..."
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/edit_text_color"
+                    android:editable="true"
+                    android:maxLength="10"
+                    android:textColorHint="@drawable/required_hint_color_selector" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/isViber"
+                    android:checked="true"
+                    android:text="Viber"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/edit_text_color" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/salonText"
+        android:text="Место работы"
+        android:textColor="@color/edit_text_color"
+        android:layout_below="@+id/barberName"
+        android:paddingLeft="12dp"
+        android:background="@color/strip_bg"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/salonText"
+        android:layout_marginLeft="12dp"
+        android:minWidth="85dp"
+
+        android:id="@+id/salonName"
+        android:background="#ffffff">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences|textPersonName"
+            android:ems="10"
+            android:id="@+id/salon_name"
+            android:editable="true"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:hint="Название салона"
+            android:minWidth="150dp"
+            android:textColor="@color/edit_text_color"
+            android:maxLength="50"
+            android:background="#ffffff"
+            android:textColorHint="@drawable/hint_color_selector" />
+
+        <Space
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/spaceSize" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/salon_address"
+            android:editable="true"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:hint="Адрес салона"
+            android:inputType="textPostalAddress"
+            android:textColor="@color/edit_text_color"
+            android:maxLength="50"
+            android:background="#ffffff"
+            android:textColorHint="@drawable/required_hint_color_selector" />
+
+        <Space
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/spaceSize" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone|numberDecimal"
+            android:ems="10"
+            android:id="@+id/salon_phone"
+            android:editable="true"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/text_size"
+            android:hint="Телефон салона"
+            android:textColor="@color/edit_text_color"
+            android:maxLength="13"
+            android:background="#ffffff"
+            android:textColorHint="@drawable/hint_color_selector" />
+
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/tab_1_barber.xml -->
