@@ -13,23 +13,22 @@ import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.identity.intents.Address;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -39,25 +38,16 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.plus.Plus;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -79,8 +69,8 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
     private Boolean getLocation=false;
     private GoogleApiClient mGoogleApiClient;
     private Typeface tf;
-    private ArrayAdapter<String> specializationsAdapter;
-    private ArrayAdapter<String> qualificationsAdapter;
+    private SpinnerAdapter specializationsAdapter;
+    private SpinnerAdapter qualificationsAdapter;
     private JSONObject barbers;
     private int currentViewId;
 
@@ -138,6 +128,11 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
                     case MyMarker.mMASTER:
                         markerOption.icon(BitmapDescriptorFactory.fromResource(R.drawable.master));
                         break;
+
+                    case MyMarker.mSALON:
+                        markerOption.icon(BitmapDescriptorFactory.fromResource(R.drawable.salon));
+                        break;
+
                 }
 
                 Marker currentMarker = mMap.addMarker(markerOption);
@@ -152,6 +147,7 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
             hideKeyboard();
             setContentView(R.layout.map);
             currentViewId=R.layout.map;
+            //Log.v("Pricessss","pricess "+res);
             JSONObject j = new JSONObject(res);
             JSONObject lastBarber = j.getJSONObject("" + j.length());
             startCoord = new LatLng(Double.parseDouble(lastBarber.getString("home_lat")),
@@ -182,28 +178,43 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
     private void customizeSpinner(){
         TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker2);
         timePicker.setIs24HourView(true);
-
         timePicker.setCurrentHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
-        //timePicker.setScaleX((float) 0.75);
-        //timePicker.setScaleY((float) 0.75);
+
+        Button b1 = (Button)findViewById(R.id.search_by_gps_button); b1.setTypeface(tf);
+        Button b2 = (Button)findViewById(R.id.search_by_metro_button); b2.setTypeface(tf);
+        Button b3 = (Button)findViewById(R.id.search_by_salon_name_button); b3.setTypeface(tf);
+        Button b4 = (Button)findViewById(R.id.search_by_salon_price_button); b4.setTypeface(tf);
+        Button b5 = (Button)findViewById(R.id.search_by_salon_service_type_button); b5.setTypeface(tf);
+        Button b6 = (Button)findViewById(R.id.search_by_barber_name_button); b6.setTypeface(tf);
+        Button b7 = (Button)findViewById(R.id.search_by_barber_specialization_button); b7.setTypeface(tf);
+        Button b8 = (Button)findViewById(R.id.search_by_barber_qualification_button); b8.setTypeface(tf);
+
+        TextView t1 = (TextView) findViewById(R.id.search_header_text); t1.setTypeface(tf);
+        TextView t2 = (TextView) findViewById(R.id.search_by_location_text); t2.setTypeface(tf);
+        TextView t3 = (TextView) findViewById(R.id.search_by_salon_text); t3.setTypeface(tf);
+        TextView t4 = (TextView) findViewById(R.id.search_by_master_text); t4.setTypeface(tf);
+        TextView t5 = (TextView) findViewById(R.id.search_barber_name); t5.setTypeface(tf);
+        TextView t6 = (TextView) findViewById(R.id.search_by_time_text); t6.setTypeface(tf);
+
 
         Spinner metroSpinner   = (Spinner)findViewById(R.id.metro_spinner);
+
+        SpinnerAdapter sa = new SpinnerAdapter(this);
+        metroSpinner.setAdapter(sa);
+
         Spinner specializationsSpinner = (Spinner)findViewById(R.id.specialization_spinner);
         Spinner qualificationsSpinner  = (Spinner)findViewById(R.id.qualification_spinner);
         TextView spin = (TextView) findViewById(R.id.spinnertext);
-        //spin.setTypeface(tf);
+        if(spin!=null)
+            spin.setTypeface(tf);
 
-        //spin=null;
-        ArrayAdapter<CharSequence> metroAdapter =
-                ArrayAdapter.createFromResource(this, R.array.metro_list, R.layout.simple_spinner_dropdown_item);
-        metroAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
-        metroSpinner.setAdapter(metroAdapter);
 
-        specializationsAdapter = new ArrayAdapter<String>(this,R.layout.simple_spinner_dropdown_item);
-        specializationsAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        specializationsAdapter = new SpinnerAdapter(this);
+        specializationsAdapter.colors.clear();
+
         specializationsSpinner.setAdapter(specializationsAdapter);
-        qualificationsAdapter = new ArrayAdapter<String>(this,R.layout.simple_spinner_dropdown_item);
-        qualificationsAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        qualificationsAdapter = new SpinnerAdapter(this);
+        qualificationsAdapter.colors.clear();
         qualificationsSpinner.setAdapter(qualificationsAdapter);
 
         getSpecializationsAndQualifications();
@@ -218,7 +229,7 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
             JSONArray specsJ = jo.getJSONArray("specializations");
             if (specializationsAdapter != null) {
                 for (int j = 1; j < specsJ.length(); j++) {
-                    specializationsAdapter.add((String) specsJ.get(j));
+                    specializationsAdapter.colors.add((String) specsJ.get(j));
                 }
                 specializationsAdapter.notifyDataSetChanged();
             }
@@ -226,7 +237,7 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
             JSONArray qualsJ = jo.getJSONArray("qualifications");
             if (qualificationsAdapter != null) {
                 for (int j = 1; j < qualsJ.length(); j++) {
-                    qualificationsAdapter.add((String) qualsJ.get(j));
+                    qualificationsAdapter.colors.add((String) qualsJ.get(j));
                 }
                 qualificationsAdapter.notifyDataSetChanged();
             }
@@ -266,10 +277,16 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
                 String qualifString=MainActivity.cleanString(arr.getString("qualification"));
 
                 //Log.v("json_barbers", "jbb "+qualifString+"|"+specs[0]);
-                int qualif=MyMarker.mBARBER;
+                int qualif=qualificationsAdapter.colors.indexOf(qualifString)+1;
+                /*
+                Log.i("myQualification","myQualification "+qualificationsAdapter.getPosition(qualifString));
+
                 if(qualifString.equalsIgnoreCase("парикмахер")) qualif=MyMarker.mBARBER;  else
                 if(qualifString.equalsIgnoreCase("стилист"))qualif=MyMarker.mSTYLIST; else
                 if(qualifString.equalsIgnoreCase("мастер")) qualif=MyMarker.mMASTER;
+                */
+
+                if(qualif==-1) qualif=MyMarker.mBARBER;
 
                 final Bitmap[] bitmap=new Bitmap[1];
                 final JSONObject finalArr = arr;
@@ -425,6 +442,63 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
         alert.show();
     }
 
+    private AlertDialog alert;
+    public void showPriceSearchDialog(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LinearLayout view = (LinearLayout) getLayoutInflater()
+                .inflate(R.layout.search_by_price_alert, null);
+        builder.setView(view)
+                .setCancelable(true);/*
+                .setNegativeButton("Отмена", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                })
+                .setPositiveButton("Искать", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //TODO Save settings to sharedprefs and send to server
+
+
+                    }
+                });*/
+        alert = builder.create();
+        alert.show();
+          
+        
+        try {
+            SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
+            TextView t1 = (TextView) alert.findViewById(R.id.alert_man);t1.setTypeface(tf);
+            TextView t2 = (TextView) alert.findViewById(R.id.alert_woman);t2.setTypeface(tf);
+            TextView t3 = (TextView) alert.findViewById(R.id.alert_colorize);t3.setTypeface(tf);
+            TextView t4 = (TextView) alert.findViewById(R.id.alert_hairdo);t4.setTypeface(tf);
+            TextView t5 = (TextView) alert.findViewById(R.id.search_grn1);t5.setTypeface(tf);
+            TextView t6 = (TextView) alert.findViewById(R.id.search_grn2);t6.setTypeface(tf);
+            TextView t7 = (TextView) alert.findViewById(R.id.search_grn3);t7.setTypeface(tf);
+            TextView t8 = (TextView) alert.findViewById(R.id.search_grn4);t8.setTypeface(tf);
+            TextView t9 = (TextView) alert.findViewById(R.id.search_grn5);t9.setTypeface(tf);
+            TextView t10 = (TextView) alert.findViewById(R.id.search_grn6);t10.setTypeface(tf);
+            TextView t11 = (TextView) alert.findViewById(R.id.search_grn7);t11.setTypeface(tf);
+            TextView t12 = (TextView) alert.findViewById(R.id.search_grn8);t12.setTypeface(tf);
+            TextView t13 = (TextView) alert.findViewById(R.id.search_prices_man_cut_from);
+            t13.setTypeface(tf);t13.setText(settings.getString("search_prices_man_cut_from",""));
+            TextView t14 = (TextView) alert.findViewById(R.id.search_prices_woman_cut_from);
+            t14.setTypeface(tf);t14.setText(settings.getString("search_prices_woman_cut_from", ""));
+            TextView t15 = (TextView) alert.findViewById(R.id.search_prices_colorize_from);
+            t15.setTypeface(tf);t15.setText(settings.getString("search_prices_colorize_from", ""));
+            TextView t16 = (TextView) alert.findViewById(R.id.search_prices_hairdo_from);
+            t16.setTypeface(tf);t16.setText(settings.getString("search_prices_hairdo_from", ""));
+            TextView t17 = (TextView) alert.findViewById(R.id.search_prices_man_cut_to);
+            t17.setTypeface(tf);t17.setText(settings.getString("search_prices_man_cut_to", ""));
+            TextView t18 = (TextView) alert.findViewById(R.id.search_prices_woman_cut_to);
+            t18.setTypeface(tf);t18.setText(settings.getString("search_prices_woman_cut_to", ""));
+            TextView t19 = (TextView) alert.findViewById(R.id.search_prices_colorize_to);
+            t19.setTypeface(tf);t19.setText(settings.getString("search_prices_colorize_to", ""));
+            TextView t20 = (TextView) alert.findViewById(R.id.search_prices_hairdo_to);
+            t20.setTypeface(tf);t20.setText(settings.getString("search_prices_hairdo_to",""));
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+
+    }
 
     public void searchGPS(View v){
         LatLng l=_getLocation();
@@ -440,7 +514,6 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
                 getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         List<String> providers=locationManager.getAllProviders();
-
 
         try {
             String bestProvider = locationManager.getBestProvider(criteria, true);
@@ -473,7 +546,6 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
                 double longitude = addresses.get(0).getLongitude();
 
                 showMap(new LatLng(latitude, longitude));
-
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -491,9 +563,7 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         new JSONParser(jo,this).execute();
-
     }
 
     public void searchBarberQualification(View v){
@@ -538,11 +608,65 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
     }
 
     public void searchSalonName(View v){
+        TextView bn = (TextView) findViewById(R.id.search_barber_name);
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("dataType","searchBarberName");
+            jo.put("barberNameToSearch",MainActivity.cleanString(bn.getText().toString()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
+        new JSONParser(jo,this).execute();
     }
 
     public void searchSalonPrices(View v){
-
+        try {
+            TextView t13 = (TextView) alert.findViewById(R.id.search_prices_man_cut_from);
+            TextView t14 = (TextView) alert.findViewById(R.id.search_prices_woman_cut_from);
+            TextView t15 = (TextView) alert.findViewById(R.id.search_prices_colorize_from);
+            TextView t16 = (TextView) alert.findViewById(R.id.search_prices_hairdo_from);
+            TextView t17 = (TextView) alert.findViewById(R.id.search_prices_man_cut_to);
+            TextView t18 = (TextView) alert.findViewById(R.id.search_prices_woman_cut_to);
+            TextView t19 = (TextView) alert.findViewById(R.id.search_prices_colorize_to);
+            TextView t20 = (TextView) alert.findViewById(R.id.search_prices_hairdo_to);
+            JSONObject jo = new JSONObject();
+            jo.put("dataType", "searchByPrice");
+            jo.put("search_prices_man_cut_from",  t13.getText());
+            jo.put("search_prices_woman_cut_from",t14.getText());
+            jo.put("search_prices_colorize_from", t15.getText());
+            jo.put("search_prices_hairdo_from",   t16.getText());
+            jo.put("search_prices_man_cut_to",    t17.getText());
+            jo.put("search_prices_woman_cut_to",  t18.getText());
+            jo.put("search_prices_colorize_to",   t19.getText());
+            jo.put("search_prices_hairdo_to",     t20.getText());
+            JSONObject header = new JSONObject();
+            header.put("devicemodel", android.os.Build.MODEL); // Device model
+            header.put("deviceVersion", android.os.Build.VERSION.RELEASE); // Device OS version
+            header.put("language", Locale.getDefault().getISO3Language()); // Language
+            jo.put("header", header);
+            JSONParser mJSONParser = new JSONParser(jo,this);
+            mJSONParser.execute();
+            SharedPreferences settings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("search_prices_man_cut_from", t13.getText().toString());
+            editor.putString("search_prices_woman_cut_from", t14.getText().toString());
+            editor.putString("search_prices_colorize_from", t15.getText().toString());
+            editor.putString("search_prices_hairdo_from", t16.getText().toString());
+            editor.putString("search_prices_man_cut_to", t17.getText().toString());
+            editor.putString("search_prices_woman_cut_to", t18.getText().toString());
+            editor.putString("search_prices_colorize_to", t19.getText().toString());
+            editor.putString("search_prices_hairdo_to", t20.getText().toString());
+            editor.commit();
+            //FrameLayout a=(FrameLayout) v.getParent().getParent().getParent().getParent();
+           // a.removeAllViewsInLayout();
+            //Log.i("alert","alert"+a.getClass());
+            if(alert!=null)alert.dismiss();
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
     public void searchSalonServices(View v){
@@ -559,7 +683,6 @@ public class MapActivity extends Activity implements GoogleMap.OnMapLoadedCallba
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
                     }
                 });
         AlertDialog alert = builder.create();

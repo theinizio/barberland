@@ -28,6 +28,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.google.android.gms:play-services:+'
+	compile 'com.google.maps.android:android-maps-utils:0.3+'
     compile files('src/main/libs/httpclient-4.3.6.jar')
     compile files('src/main/libs/httpcore-4.3.3.jar')
     compile files('src/main/libs/httpmime-4.3.6.jar')

@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -68,7 +69,9 @@ public class NewClientActivity extends Activity {
         tf=Typeface.createFromAsset(getAssets(),"teslic.ttf");
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        Log.i("constructor","pinOk="+settings.getBoolean("pinOk",false));
         if(settings.getBoolean("pinOk", false)){
+            Log.v("gotomap","gotomap");
             finish();
             Intent intent = new Intent(NewClientActivity.this, MapActivity.class);
             //intent.putExtra("type", ViewPagerAdapter.SALON);
@@ -117,7 +120,7 @@ public class NewClientActivity extends Activity {
     }
 
     public void skipRegistration(View v){
-        Intent intent = new Intent(NewClientActivity.this, SearchActivity.class);
+        Intent intent = new Intent(NewClientActivity.this, MapActivity.class);
         //intent.putExtra("type", ViewPagerAdapter.SALON);
         startActivity(intent);
     }
@@ -129,6 +132,10 @@ public class NewClientActivity extends Activity {
         pin.setTypeface(tf);
     }
 
+    public void gotPin(String res){
+        if(res!=null&&res.length()==4)
+            clientPin=res;
+    }
 
     private boolean checkNameAndPhone(String name, String phone){
         String errStr="";
@@ -158,8 +165,8 @@ public class NewClientActivity extends Activity {
                 editor.putBoolean("pinOk", true);
                 editor.putInt("lastPin", Integer.parseInt(clientPin));
                 editor.commit();
-
-                Intent intent = new Intent(NewClientActivity.this, SearchActivity.class);
+                Log.i("checkPin","pinOk="+settings.getBoolean("pinOk",false));
+                Intent intent = new Intent(NewClientActivity.this, MapActivity.class);
                 //intent.putExtra("type", ViewPagerAdapter.SALON);
                 startActivity(intent);
             }

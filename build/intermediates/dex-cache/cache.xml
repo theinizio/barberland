@@ -183,5 +183,12 @@
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
         <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-2e3d6c5e77e16fcd20a33e7892fefe27df265274.jar" />
     </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.3.4\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="cf251baf39f5c5138224b67b4106eb6331abbd13">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-00bfcda450b6d137a3ead2c493af06b1bcdedd94.jar" />
+    </item>
 
 </items>

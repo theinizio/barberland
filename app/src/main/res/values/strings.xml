@@ -19,7 +19,7 @@
         <item>парикмахер</item>
     </string-array>
 
-    <string-array name="metro_list">
+    <string-array name="metro_list_red">
         <item>Академгородок</item>
         <item>Житомирская</item>
         <item>Святошин</item>
@@ -38,6 +38,8 @@
         <item>Дарница</item>
         <item>Черниговская</item>
         <item>Лесная</item>
+    </string-array>
+    <string-array name="metro_list_blue">
         <item>Героев Днепра</item>
         <item>Минская</item>
         <item>Оболонь</item>
@@ -56,6 +58,8 @@
         <item>Выставочный центр</item>
         <item>Ипподром</item>
         <item>Теремки</item>
+    </string-array>
+    <string-array name="metro_list_green">
         <item>Сырец</item>
         <item>Дорогожичи</item>
         <item>Лукьяновская</item>

@@ -8,14 +8,15 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:id="@+id/search_layout"
-    android:paddingLeft="12dp">
+    android:paddingLeft="12dp"
+    android:theme="@style/Theme.AppCompat.Light">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Поиск"
-        android:id="@+id/textView6"
+        android:text="поиск"
+        android:id="@+id/search_header_text"
 
         android:textColor="@color/edit_text_color"
         android:textSize="30dp" />
@@ -24,29 +25,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="По месторасположению:"
-        android:id="@+id/by_location_text"
+        android:text="по месторасположению:"
+        android:id="@+id/search_by_location_text"
         android:textSize="@dimen/text_size"
         android:textColor="@color/edit_text_color"
         android:textIsSelectable="false" />
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp">
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="мое положение"
-            android:id="@+id/button"
-            android:textColor="@color/edit_text_color"
+            android:id="@+id/search_by_gps_button"
             android:textSize="@dimen/text_size"
-            android:background="@color/required_field_hint_color"
             android:gravity="left|center|center_horizontal"
             android:paddingLeft="5dp"
-            android:onClick="searchGPS" />
+            android:onClick="searchGPS"
+            android:textColor="@color/text" />
 
 
 
@@ -54,24 +54,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="метро"
-                android:id="@+id/button3"
+                android:id="@+id/search_by_metro_button"
                 android:textColor="@color/edit_text_color"
                 android:textSize="@dimen/text_size"
-                android:background="@color/required_field_hint_color"
                 android:paddingLeft="5dp"
                 android:paddingRight="2dp"
                 android:gravity="left|center|center_horizontal"
                 android:onClick="searchMetro"
-                android:layout_weight=".5" />
+                android:theme="@style/Theme.AppCompat.Light" />
 
             <Spinner
                 android:id="@+id/metro_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/metro_list"
+
                 android:layout_weight=".5"
 
-                android:theme="@style/light6"
                 android:layout_gravity="right" />
 
 
@@ -80,8 +78,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="По салону:"
-        android:id="@+id/by_salon_text"
+        android:text="по салону:"
+        android:id="@+id/search_by_salon_text"
         android:textSize="@dimen/text_size"
         android:textColor="@color/edit_text_color"
         android:textIsSelectable="false" />
@@ -96,10 +94,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Название"
-            android:id="@+id/button12"
+            android:id="@+id/search_by_salon_name_button"
             android:textColor="@color/edit_text_color"
             android:textSize="@dimen/text_size"
-            android:background="@color/required_field_hint_color"
             android:gravity="left|center|center_horizontal"
             android:paddingLeft="5dp"
             android:onClick="searchSalonName" />
@@ -108,23 +105,21 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Ценовая категория"
-            android:id="@+id/button22"
+            android:id="@+id/search_by_salon_price_button"
             android:textSize="@dimen/text_size"
             android:textColor="@color/edit_text_color"
-            android:background="@color/required_field_hint_color"
             android:gravity="left|center|center_horizontal"
             android:paddingLeft="5dp"
             android:paddingRight="2dp"
-            android:onClick="searchSalonPrices" />
+            android:onClick="showPriceSearchDialog" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Услуги"
-            android:id="@+id/button32"
+            android:id="@+id/search_by_salon_service_type_button"
             android:textColor="@color/edit_text_color"
             android:textSize="@dimen/text_size"
-            android:background="@color/required_field_hint_color"
             android:paddingLeft="5dp"
             android:paddingRight="2dp"
             android:gravity="left|center|center_horizontal"
@@ -134,8 +129,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="По мастеру:"
-        android:id="@+id/by_master_text"
+        android:text="по мастеру:"
+        android:id="@+id/search_by_master_text"
         android:textSize="@dimen/text_size"
         android:textColor="@color/edit_text_color"
         android:textIsSelectable="false" />
@@ -152,10 +147,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="ФИО"
-            android:id="@+id/master_name_button"
+            android:id="@+id/search_by_barber_name_button"
             android:textColor="@color/edit_text_color"
             android:textSize="@dimen/text_size"
-            android:background="@color/required_field_hint_color"
+            android:background="@drawable/ramka"
             android:gravity="left|center|center_horizontal"
             android:paddingLeft="5dp"
             android:onClick="searchBarberName" />
@@ -177,10 +172,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Специализация"
-                android:id="@+id/master_specialization_button"
+                android:id="@+id/search_by_barber_specialization_button"
                 android:textSize="@dimen/text_size"
                 android:textColor="@color/edit_text_color"
-                android:background="@color/required_field_hint_color"
+                android:background="@drawable/ramka"
                 android:gravity="left|center|center_horizontal"
                 android:paddingLeft="5dp"
                 android:paddingRight="2dp"
@@ -204,10 +199,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Квалификация"
-                android:id="@+id/master_qualification_button"
+                android:id="@+id/search_by_barber_qualification_button"
                 android:textColor="@color/edit_text_color"
                 android:textSize="@dimen/text_size"
-                android:background="@color/required_field_hint_color"
+                android:background="@drawable/ramka"
                 android:paddingLeft="5dp"
                 android:paddingRight="2dp"
                 android:gravity="left|center|center_horizontal"
@@ -229,8 +224,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="По времени:"
-        android:id="@+id/by_time_text"
+        android:text="по времени:"
+        android:id="@+id/search_by_time_text"
         android:textSize="@dimen/text_size"
         android:textColor="@color/edit_text_color"
         android:textIsSelectable="false" />

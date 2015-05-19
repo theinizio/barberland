@@ -6,4 +6,4 @@
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:textColor="@color/edit_text_color"
-    android:textSize="@dimen/text_size" /><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/simple_spinner_dropdown_item.xml -->
+    android:textSize="@dimen/text_size" /><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/my_simple_spinner_dropdown_item.xml -->

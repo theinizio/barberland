@@ -126,6 +126,7 @@ MERGED from com.android.support:support-v4:22.0.0:20:5
 MERGED from com.google.android.gms:play-services-wearable:7.0.0:18:5
 MERGED from com.google.android.gms:play-services-base:7.0.0:18:5
 MERGED from com.android.support:support-v4:22.0.0:20:5
+MERGED from com.google.maps.android:android-maps-utils:0.3.4:5:5
 	android:targetSdkVersion
 		ADDED from AndroidManifest.xml:19:42
 		INJECTED from AndroidManifest.xml:0:0
@@ -217,6 +218,7 @@ MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.google.android.gms:play-services-wearable:7.0.0:19:5
 MERGED from com.google.android.gms:play-services-base:7.0.0:20:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
+MERGED from com.google.maps.android:android-maps-utils:0.3.4:7:5
 	android:label
 		ADDED from AndroidManifest.xml:24:9
 	android:allowBackup

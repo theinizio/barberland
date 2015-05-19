@@ -9,4 +9,9 @@
      <color name="ColorPrimaryDark">#EFE6E6</color>
      <color name="tabsScrollColor">#004d40</color>
 
+     <color name="metro_red">#fffdd4cd</color>
+     <color name="metro_blue">#ffb4d4ff</color>
+     <color name="metro_green">#ffd3ffbf</color>
+     <color name="white">#ffffff</color>
+
 </resources>

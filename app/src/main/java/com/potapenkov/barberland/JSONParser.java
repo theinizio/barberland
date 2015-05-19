@@ -110,9 +110,10 @@ public class JSONParser extends AsyncTask<Void, Integer, String> {
 
     @Override
     protected void onPostExecute(String res) {
-        if (res.length() > 3) res = res.substring(3);
+        if(res!=null)
+            if (res.length() > 3) res = res.substring(3);
         super.onPostExecute(res);
-        Log.i("res",res);
+        //Log.i("res",res);
         try {
 
             String dataType=(String) dataToSend.get("dataType");
@@ -122,10 +123,17 @@ public class JSONParser extends AsyncTask<Void, Integer, String> {
                 SharedPreferences.Editor editor = settings.edit();
                 if (res.contains("pin:")) {
                     String pin = MainActivity.cleanString(res.split(":")[1]);
-                    clientPin = pin;
+                    if(context instanceof NewClientActivity) {
+                        NewClientActivity nc = (NewClientActivity) context;
+                        nc.gotPin(pin);
+                    }
+                    if(context instanceof NewBarberActivity) {
+                        NewBarberActivity nc = (NewBarberActivity) context;
+                        nc.gotPin(pin);
+                    }
                     editor.putString("clientPin", pin);
                     editor.commit();
-                    if(settings.getBoolean("showPinOnScreen",false))
+                    //if(settings.getBoolean("showPinOnScreen",false))
                         showAlert(pin);
                 }
             }

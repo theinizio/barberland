@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Мужская от"
+                android:id="@+id/alert_man"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/search_prices_man_cut_from"
+                android:hint="20"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="до"
+                android:id="@+id/search_grn5"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/search_prices_man_cut_to"
+                android:hint="50"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/search_grn1"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Женская от"
+                android:id="@+id/alert_woman"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/search_prices_woman_cut_from"
+                android:hint="40"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="до"
+                android:id="@+id/search_grn6"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/search_prices_woman_cut_to"
+                android:hint="50"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/search_grn2"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Укладка от"
+                android:id="@+id/alert_hairdo"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/search_prices_hairdo_from"
+                android:hint="40"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="до"
+                android:id="@+id/search_grn7"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/search_prices_hairdo_to"
+                android:hint="50"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/search_grn3"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Окрашивание от"
+                android:id="@+id/alert_colorize"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="2"
+                android:id="@+id/search_prices_colorize_from"
+                android:hint="40"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="до"
+                android:id="@+id/search_grn8"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="2"
+                android:id="@+id/search_prices_colorize_to"
+                android:hint="50"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="грн."
+                android:id="@+id/search_grn4"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:textColorHint="@drawable/hint_color_selector" />
+        </TableRow>
+    </TableLayout>
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/spaceSize"
+        android:id="@+id/search_saveData" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/okB"
+        android:layout_gravity="right"
+        android:onClick="searchSalonPrices"
+        android:nestedScrollingEnabled="false"
+        android:src="@drawable/ok"
+        android:background="@null"
+        android:layout_marginRight="10dp" />
+
+</LinearLayout>

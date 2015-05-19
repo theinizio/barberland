@@ -85,7 +85,7 @@ public class NewBarberActivity extends ActionBarActivity {
 
     private Boolean getLocation=false;
     private URL url = null;
-
+    private Bitmap photo;
     private CheckBox chIsMonday;
     private CheckBox chIsTuesday;
     private CheckBox chIsWednesday;
@@ -359,9 +359,10 @@ public class NewBarberActivity extends ActionBarActivity {
             case CROP_FROM_CAMERA:
                 Bundle extras = data.getExtras();
                 if (extras != null) {
-                    Bitmap photo = extras.getParcelable("data");
+                    photo = extras.getParcelable("data");
                     ImageButton b=(ImageButton) findViewById(R.id.barber_photo);
                     b.setImageBitmap(photo);
+
                     String path = Environment.getExternalStorageDirectory().toString();
                     OutputStream fOut = null;
                     File file = null; // the File to save to
@@ -398,7 +399,7 @@ public class NewBarberActivity extends ActionBarActivity {
                 }
                 File f = new File(mImageCaptureUri.getPath());
 
-                if (f.exists()) f.delete();
+               // if (f.exists()) f.delete();
 
                 break;
 
@@ -406,9 +407,6 @@ public class NewBarberActivity extends ActionBarActivity {
     }
 
 
-    public String cleanString(String dirty) {
-        return Html.fromHtml(dirty).toString();
-    }
 
     private void formSetUp(int position) {
         Log.i("formSetup","formSetup "+position);
@@ -434,155 +432,57 @@ public class NewBarberActivity extends ActionBarActivity {
         }
     }
 
-    private void setUpShedule(SharedPreferences settings) {
-        TextView mon = (TextView) findViewById(R.id.isMonday);    mon.setTypeface(tf);
-        TextView tue = (TextView) findViewById(R.id.isTuesday);   tue.setTypeface(tf);
-        TextView wed = (TextView) findViewById(R.id.isWednesday); wed.setTypeface(tf);
-        TextView thu = (TextView) findViewById(R.id.isThursday);  thu.setTypeface(tf);
-        TextView fri = (TextView) findViewById(R.id.isFriday);    fri.setTypeface(tf);
-        TextView sat = (TextView) findViewById(R.id.isSaturday);  sat.setTypeface(tf);
-        TextView sun = (TextView) findViewById(R.id.isSunday);    sun.setTypeface(tf);
-
-        mon = (TextView) findViewById(R.id.oddOpenTime);    mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.oddFinishTime);  tue.setTypeface(tf);
-        mon = (TextView) findViewById(R.id.evenFinishTime); mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.evenOpenTime);   tue.setTypeface(tf);
-        mon = (TextView) findViewById(R.id.isEven); mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.isOdd);  tue.setTypeface(tf);
-
-        mon = (TextView) findViewById(R.id.mondayOpenTime);    mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.tuesdayOpenTime);   tue.setTypeface(tf);
-        wed = (TextView) findViewById(R.id.wednesdayOpenTime); wed.setTypeface(tf);
-        thu = (TextView) findViewById(R.id.thursdayOpenTime);  thu.setTypeface(tf);
-        fri = (TextView) findViewById(R.id.fridayOpenTime);    fri.setTypeface(tf);
-        sat = (TextView) findViewById(R.id.saturdayOpenTime);  sat.setTypeface(tf);
-        sun = (TextView) findViewById(R.id.sundayOpenTime);    sun.setTypeface(tf);
-
-        mon = (TextView) findViewById(R.id.mondayFinishTime);   mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.tuesdayFinishTime);  tue.setTypeface(tf);
-        wed = (TextView) findViewById(R.id.wednesdayFinishTime);wed.setTypeface(tf);
-        thu = (TextView) findViewById(R.id.thursdayFinishTime); thu.setTypeface(tf);
-        fri = (TextView) findViewById(R.id.fridayFinishTime);   fri.setTypeface(tf);
-        sat = (TextView) findViewById(R.id.saturdayFinishTime); sat.setTypeface(tf);
-        sun = (TextView) findViewById(R.id.sundayFinishTime);   sun.setTypeface(tf);
 
 
 
-
-        tvMonOpenTime   = (TextView) findViewById(R.id.mondayOpenTime);
-        tvMonFinishTime = (TextView) findViewById(R.id.mondayFinishTime);
-        tvTueOpenTime   = (TextView) findViewById(R.id.tuesdayOpenTime);
-        tvTueFinishTime = (TextView) findViewById(R.id.tuesdayFinishTime);
-        tvWedOpenTime   = (TextView) findViewById(R.id.wednesdayOpenTime);
-        tvWedFinishTime = (TextView) findViewById(R.id.wednesdayFinishTime);
-        tvThuOpenTime   = (TextView) findViewById(R.id.thursdayOpenTime);
-        tvThuFinishTime = (TextView) findViewById(R.id.thursdayFinishTime);
-        tvFriOpenTime   = (TextView) findViewById(R.id.fridayOpenTime);
-        tvFriFinishTime = (TextView) findViewById(R.id.fridayOpenTime);
-        tvSatOpenTime   = (TextView) findViewById(R.id.saturdayOpenTime);
-        tvSatFinishTime = (TextView) findViewById(R.id.saturdayFinishTime);
-        tvSunOpenTime   = (TextView) findViewById(R.id.sundayOpenTime);
-        tvSunFinishTime = (TextView) findViewById(R.id.sundayFinishTime);
-        tvOddOpenTime   = (TextView) findViewById(R.id.oddOpenTime);
-        tvOddFinishTime = (TextView) findViewById(R.id.oddFinishTime);
-        tvEvenOpenTime  = (TextView) findViewById(R.id.evenOpenTime);
-        tvEvenFinishTime= (TextView) findViewById(R.id.evenFinishTime);
-
-    }
-    private void setUpQualification(SharedPreferences settings) {
-
-        TextView mon = (TextView) findViewById(R.id.qualification);
-        mon.setTypeface(tf);
-        TextView tue = (TextView) findViewById(R.id.isBarber);
-        tue.setTypeface(tf);
-        TextView wed = (TextView) findViewById(R.id.isStylist);
-        wed.setTypeface(tf);
-        TextView thu = (TextView) findViewById(R.id.isMaster);
-        thu.setTypeface(tf);
-        TextView fri = (TextView) findViewById(R.id.isWomanCut);
-        fri.setTypeface(tf);
-        TextView sat = (TextView) findViewById(R.id.isManCut);
-        sat.setTypeface(tf);
-        TextView sun = (TextView) findViewById(R.id.isEvening);
-        sun.setTypeface(tf);
-
-        mon = (TextView) findViewById(R.id.isColor);
-        mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.isHighLight);
-        tue.setTypeface(tf);
-        wed = (TextView) findViewById(R.id.specializationText);
-        wed.setTypeface(tf);
-    }
-    private void setUpPrices(SharedPreferences settings) {
-        TextView mon = (TextView) findViewById(R.id.prices_base_cut_text);
-        mon.setTypeface(tf);
-        TextView tue = (TextView) findViewById(R.id.prices_colorize_price);
-        tue.setTypeface(tf);
-        TextView wed = (TextView) findViewById(R.id.prices_colorize_text);
-        wed.setTypeface(tf);
-        TextView thu = (TextView) findViewById(R.id.prices_hairdo_price);
-        thu.setTypeface(tf);
-        TextView fri = (TextView) findViewById(R.id.prices_hairdo_text);
-        fri.setTypeface(tf);
-        TextView sat = (TextView) findViewById(R.id.prices_man_cut_price);
-        sat.setTypeface(tf);
-        TextView sun = (TextView) findViewById(R.id.prices_man_cut_text);
-        sun.setTypeface(tf);
-        mon = (TextView) findViewById(R.id.prices_woman_cut_price);
-        mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.prices_woman_cut_rext);
-        tue.setTypeface(tf);
-        mon = (TextView) findViewById(R.id.prices_grn1);
-        mon.setTypeface(tf);
-        tue = (TextView) findViewById(R.id.prices_grn2);
-        tue.setTypeface(tf);
-        mon = (TextView) findViewById(R.id.prices_grn3);
-        mon.setTypeface(tf);
-        mon = (TextView) findViewById(R.id.prices_grn4);
-        mon.setTypeface(tf);
-    }
     private void setUpGeneral(SharedPreferences settings){
-        if (findViewById(R.id.barber_name)!=null) {
+        try {
+            if (findViewById(R.id.barber_name) != null) {
 
-            TextView mon = (TextView) findViewById(R.id.barber_name);
-            mon.setTypeface(tf);
-            mon.setText(settings.getString("barberName", ""));
-            TextView tue = (TextView) findViewById(R.id.barber_second_name);
-            tue.setTypeface(tf);
-            tue.setText(settings.getString("barberSecondName", ""));
-            tue = (TextView) findViewById(R.id.plus38_2);
-            tue.setTypeface(tf);
-            TextView wed = (TextView) findViewById(R.id.barber_phone_number);
-            wed.setTypeface(tf);
-            wed.setText(settings.getString("barberPhone", ""));
-            wed = (TextView) findViewById(R.id.barber_email);
-            wed.setTypeface(tf);
-            wed.setText(settings.getString("barberEmail", ""));
-            wed = (TextView) findViewById(R.id.isViber);
-            wed.setTypeface(tf);
-            TextView thu = (TextView) findViewById(R.id.salon_name);
-            thu.setTypeface(tf);
-            thu.setText(settings.getString("salonName", ""));
-            TextView fri = (TextView) findViewById(R.id.salon_address);
-            fri.setTypeface(tf);
-            fri.setText(settings.getString("salonAddr", ""));
-            TextView sat = (TextView) findViewById(R.id.salon_phone);
-            sat.setTypeface(tf);
-            sat.setText(settings.getString("salonPhone", ""));
-            TextView sun = (TextView) findViewById(R.id.salonText);
-            sun.setTypeface(tf);
-            Log.i("Photo", "photo " + settings.getString(uploadedFilePath, ""));
-            if(settings.contains("uploadedFilePath")&& settings.getString(uploadedFilePath, "").length()>10 ) {
-                File imgFile = new File(settings.getString(uploadedFilePath, ""));
-                if (imgFile.exists()) {
-                    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                    ImageButton myImage = (ImageButton) findViewById(R.id.barber_photo);
-                    myImage.setImageBitmap(myBitmap);
+                TextView mon = (TextView) findViewById(R.id.barber_name);
+                mon.setTypeface(tf);
+                mon.setText(settings.getString("barberName", ""));
+                TextView tue = (TextView) findViewById(R.id.barber_second_name);
+                tue.setTypeface(tf);
+                tue.setText(settings.getString("barberSecondName", ""));
+                tue = (TextView) findViewById(R.id.plus38_2);
+                tue.setTypeface(tf);
+                TextView wed = (TextView) findViewById(R.id.barber_phone_number);
+                wed.setTypeface(tf);
+                wed.setText(settings.getString("barberPhone", ""));
+                wed = (TextView) findViewById(R.id.barber_email);
+                wed.setTypeface(tf);
+                wed.setText(settings.getString("barberEmail", ""));
+                wed = (TextView) findViewById(R.id.isViber);
+                wed.setTypeface(tf);
+                TextView thu = (TextView) findViewById(R.id.salon_name);
+                thu.setTypeface(tf);
+                thu.setText(settings.getString("salonName", ""));
+                TextView fri = (TextView) findViewById(R.id.salon_address);
+                fri.setTypeface(tf);
+                fri.setText(settings.getString("salonAddr", ""));
+                TextView sat = (TextView) findViewById(R.id.salon_phone);
+                sat.setTypeface(tf);
+                sat.setText(settings.getString("salonPhone", ""));
+                TextView sun = (TextView) findViewById(R.id.salonText);
+                sun.setTypeface(tf);
+                Log.i("Photo", "photo " + settings.getString("uploadedFilePath", ""));
+                if (settings.contains("uploadedFilePath") && settings.getString("uploadedFilePath", "").length() > 10) {
+                    File imgFile = new File(settings.getString("uploadedFilePath", ""));
+                    if (imgFile.exists()) {
+                        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                        ImageButton myImage = (ImageButton) findViewById(R.id.barber_photo);
+                        myImage.setImageBitmap(myBitmap);
+                    }else{
+                        if(photo!=null) {
+                            ImageButton myImage = (ImageButton) findViewById(R.id.barber_photo);
+                            myImage.setImageBitmap(photo);
+                        }
+
+                    }
                 }
             }
-        }
-
-            if(findViewById(R.id.new_salon_name)!=null){
+            if (findViewById(R.id.new_salon_name) != null) {
                 TextView mon1 = (TextView) findViewById(R.id.new_salon_name);
                 mon1.setTypeface(tf);
                 mon1.setText(settings.getString("newSalonName", ""));
@@ -599,8 +499,11 @@ public class NewBarberActivity extends ActionBarActivity {
                 wed1.setText(settings.getString("newSalonEmail", ""));
                 TextView com = (TextView) findViewById(R.id.new_salon_comments);
                 com.setTypeface(tf);
-                com.setText(settings.getString("comments",""));
+                com.setText(settings.getString("comments", ""));
             }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void saveGeneral(){
@@ -609,26 +512,27 @@ public class NewBarberActivity extends ActionBarActivity {
         SharedPreferences.Editor editor = settings.edit();
 
         if(barberOrSalon==ViewPagerAdapter.BARBER){
-            TextView tvBarberName = (TextView) findViewById(R.id.barber_name);
-            TextView tvBarberSecondName = (TextView) findViewById(R.id.barber_second_name);
-            TextView tvBarberPhoneNumber = (TextView) findViewById(R.id.barber_phone_number);
-            TextView tvBarberEmail = (TextView) findViewById(R.id.barber_email);
-            TextView tvSalonName = (TextView) findViewById(R.id.salon_name);
-            TextView tvSalonAddr = (TextView) findViewById(R.id.salon_address);
-            TextView tvSalonPhone = (TextView) findViewById(R.id.salon_phone);
-            CheckBox chIsViber = (CheckBox) findViewById(R.id.isViber);
-
-            if (uploadedFilePath != null) editor.putString("uploadedFilePath", uploadedFilePath);
-            //editor.putBoolean("barber_saved", true);
-            editor.putString("barberName", cleanString(tvBarberName.getText().toString()));
-            editor.putString("barberPhone", cleanString(tvBarberPhoneNumber.getText().toString()));
-            editor.putString("barberSecondName", cleanString(tvBarberSecondName.getText().toString()));
-            editor.putString("barberEmail", cleanString(tvBarberEmail.getText().toString()));
-            editor.putString("salonName", cleanString(tvSalonName.getText().toString()));
-            editor.putString("salonAddr", cleanString(tvSalonAddr.getText().toString()));
-            editor.putString("salonPhone", cleanString(tvSalonPhone.getText().toString()));
-            editor.putBoolean("isViber", chIsViber.isChecked());
+                TextView tvBarberName = (TextView) findViewById(R.id.barber_name);
+                TextView tvBarberSecondName = (TextView) findViewById(R.id.barber_second_name);
+                TextView tvBarberPhoneNumber = (TextView) findViewById(R.id.barber_phone_number);
+                TextView tvBarberEmail = (TextView) findViewById(R.id.barber_email);
+                TextView tvSalonName = (TextView) findViewById(R.id.salon_name);
+                TextView tvSalonAddr = (TextView) findViewById(R.id.salon_address);
+                TextView tvSalonPhone = (TextView) findViewById(R.id.salon_phone);
+                CheckBox chIsViber = (CheckBox) findViewById(R.id.isViber);
+                Log.i("photo","photo before save "+uploadedFilePath);
+                if (uploadedFilePath != null) editor.putString("uploadedFilePath", uploadedFilePath);
+                //editor.putBoolean("barber_saved", true);
+                editor.putString("barberName", cleanString(tvBarberName.getText().toString()));
+                editor.putString("barberPhone", cleanString(tvBarberPhoneNumber.getText().toString()));
+                editor.putString("barberSecondName", cleanString(tvBarberSecondName.getText().toString()));
+                editor.putString("barberEmail", cleanString(tvBarberEmail.getText().toString()));
+                editor.putString("salonName", cleanString(tvSalonName.getText().toString()));
+                editor.putString("salonAddr", cleanString(tvSalonAddr.getText().toString()));
+                editor.putString("salonPhone", cleanString(tvSalonPhone.getText().toString()));
+                editor.putBoolean("isViber", chIsViber.isChecked());
             editor.commit();
+            Log.i("photo","saved photo ="+settings.getString("uploadedFilePath","ЖОПА"));
         }
         if(barberOrSalon==ViewPagerAdapter.SALON){
             TextView tvSalonName = (TextView) findViewById(R.id.new_salon_name);
@@ -649,6 +553,25 @@ public class NewBarberActivity extends ActionBarActivity {
         Log.i("save", "\nsaveShedule\n");
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
+
+        tvMonOpenTime   = (TextView) findViewById(R.id.mondayOpenTime);
+        tvMonFinishTime = (TextView) findViewById(R.id.mondayFinishTime);
+        tvTueOpenTime   = (TextView) findViewById(R.id.tuesdayOpenTime);
+        tvTueFinishTime = (TextView) findViewById(R.id.tuesdayFinishTime);
+        tvWedOpenTime   = (TextView) findViewById(R.id.wednesdayOpenTime);
+        tvWedFinishTime = (TextView) findViewById(R.id.wednesdayFinishTime);
+        tvThuOpenTime   = (TextView) findViewById(R.id.thursdayOpenTime);
+        tvThuFinishTime = (TextView) findViewById(R.id.thursdayFinishTime);
+        tvFriOpenTime   = (TextView) findViewById(R.id.fridayOpenTime);
+        tvFriFinishTime = (TextView) findViewById(R.id.fridayOpenTime);
+        tvSatOpenTime   = (TextView) findViewById(R.id.saturdayOpenTime);
+        tvSatFinishTime = (TextView) findViewById(R.id.saturdayFinishTime);
+        tvSunOpenTime   = (TextView) findViewById(R.id.sundayOpenTime);
+        tvSunFinishTime = (TextView) findViewById(R.id.sundayFinishTime);
+        tvOddOpenTime   = (TextView) findViewById(R.id.oddOpenTime);
+        tvOddFinishTime = (TextView) findViewById(R.id.oddFinishTime);
+        tvEvenOpenTime  = (TextView) findViewById(R.id.evenOpenTime);
+        tvEvenFinishTime= (TextView) findViewById(R.id.evenFinishTime);
 
         chIsMonday    = (CheckBox) findViewById(R.id.isMonday);
         chIsTuesday   = (CheckBox) findViewById(R.id.isTuesday);
@@ -762,6 +685,74 @@ public class NewBarberActivity extends ActionBarActivity {
         editor.putInt("evenFinishTime", sunFinishTime);
         editor.commit();
     }
+    private void setUpShedule(SharedPreferences settings) {
+        CheckBox isMonday =    (CheckBox) findViewById(R.id.isMonday);    isMonday.setTypeface(tf);
+        CheckBox isTuesday =   (CheckBox) findViewById(R.id.isTuesday);   isTuesday.setTypeface(tf);
+        CheckBox isWednesday = (CheckBox) findViewById(R.id.isWednesday); isWednesday.setTypeface(tf);
+        CheckBox isThursday =  (CheckBox) findViewById(R.id.isThursday);  isThursday.setTypeface(tf);
+        CheckBox isFriday =    (CheckBox) findViewById(R.id.isFriday);    isFriday.setTypeface(tf);
+        CheckBox isSaturday =  (CheckBox) findViewById(R.id.isSaturday);  isSaturday.setTypeface(tf);
+        CheckBox isSunday =    (CheckBox) findViewById(R.id.isSunday);    isSunday.setTypeface(tf);
+        CheckBox isEven =      (CheckBox) findViewById(R.id.isEven);      isEven.setTypeface(tf);
+        CheckBox isOdd =       (CheckBox) findViewById(R.id.isOdd);       isOdd.setTypeface(tf);
+
+        TextView oddOpenTime = (TextView) findViewById(R.id.oddOpenTime);    oddOpenTime.setTypeface(tf);
+        TextView oddFinishTime = (TextView) findViewById(R.id.oddFinishTime);  oddFinishTime.setTypeface(tf);
+        TextView evenFinishTime = (TextView) findViewById(R.id.evenFinishTime); evenFinishTime.setTypeface(tf);
+        TextView evenOpenTime = (TextView) findViewById(R.id.evenOpenTime);   evenOpenTime.setTypeface(tf);
+        TextView mondayOpenTime = (TextView) findViewById(R.id.mondayOpenTime);    mondayOpenTime.setTypeface(tf);
+        TextView tuesdayOpenTime = (TextView) findViewById(R.id.tuesdayOpenTime);   tuesdayOpenTime.setTypeface(tf);
+        TextView wednesdayOpenTime = (TextView) findViewById(R.id.wednesdayOpenTime); wednesdayOpenTime.setTypeface(tf);
+        TextView thursdayOpenTime = (TextView) findViewById(R.id.thursdayOpenTime);  thursdayOpenTime.setTypeface(tf);
+        TextView fridayOpenTime = (TextView) findViewById(R.id.fridayOpenTime);    fridayOpenTime.setTypeface(tf);
+        TextView saturdayOpenTime = (TextView) findViewById(R.id.saturdayOpenTime);  saturdayOpenTime.setTypeface(tf);
+        TextView sundayOpenTime = (TextView) findViewById(R.id.sundayOpenTime);    sundayOpenTime.setTypeface(tf);
+        TextView mondayFinishTime = (TextView) findViewById(R.id.mondayFinishTime);   mondayFinishTime.setTypeface(tf);
+        TextView tuesdayFinishTime = (TextView) findViewById(R.id.tuesdayFinishTime);  tuesdayFinishTime.setTypeface(tf);
+        TextView wednesdayFinishTime = (TextView) findViewById(R.id.wednesdayFinishTime);wednesdayFinishTime.setTypeface(tf);
+        TextView thursdayFinishTime = (TextView) findViewById(R.id.thursdayFinishTime); thursdayFinishTime.setTypeface(tf);
+        TextView fridayFinishTime = (TextView) findViewById(R.id.fridayFinishTime);   fridayFinishTime.setTypeface(tf);
+        TextView saturdayFinishTime = (TextView) findViewById(R.id.saturdayFinishTime); saturdayFinishTime.setTypeface(tf);
+        TextView sundayFinishTime = (TextView) findViewById(R.id.sundayFinishTime);   sundayFinishTime.setTypeface(tf);
+
+        try {
+            isMonday.setChecked(settings.getBoolean("isMonday", false));
+            isTuesday.setChecked(settings.getBoolean("isTuesday", false));
+            isWednesday.setChecked(settings.getBoolean("isWednesday", false));
+            isThursday.setChecked(settings.getBoolean("isThursday", false));
+            isFriday.setChecked(settings.getBoolean("isFriday", false));
+            isSaturday.setChecked(settings.getBoolean("isSaturday", false));
+            isSaturday.setChecked(settings.getBoolean("isSaturday", false));
+            isSunday.setChecked(settings.getBoolean("isSunday", false));
+            isEven.setChecked(settings.getBoolean("isEven", true));
+            isOdd.setChecked(settings.getBoolean("isOdd", true));
+
+            oddOpenTime.setText(settings.getInt("oddOpenTime", 9));
+            oddFinishTime.setText(settings.getString("oddFinishTime", ""));
+            evenFinishTime.setText(settings.getString("evenFinishTime", ""));
+            evenOpenTime.setText(settings.getString("evenOpenTime", ""));
+            mondayOpenTime.setText(settings.getString("monOpenTime", ""));
+            tuesdayOpenTime.setText(settings.getString("tueOpenTime", ""));
+            wednesdayOpenTime.setText(settings.getString("wedOpenTime", ""));
+            thursdayOpenTime.setText(settings.getString("thuOpenTime", ""));
+            fridayOpenTime.setText(settings.getString("friOpenTime", ""));
+            saturdayOpenTime.setText(settings.getString("satOpenTime", ""));
+            sundayOpenTime.setText(settings.getString("sunOpenTime", ""));
+            mondayFinishTime.setText(settings.getString("monFinishTime", ""));
+            tuesdayFinishTime.setText(settings.getString("tueFinishTime", ""));
+            wednesdayFinishTime.setText(settings.getString("wedFinishTime", ""));
+            thursdayFinishTime.setText(settings.getString("thuFinishTime", ""));
+            fridayFinishTime.setText(settings.getString("friFinishTime", ""));
+            saturdayFinishTime.setText(settings.getString("satFinishTime", ""));
+            sundayFinishTime.setText(settings.getString("sunFinishTime", ""));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
     private void saveQualification(){
         Log.i("save", "\nsaveQualification\n");
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -786,6 +777,47 @@ public class NewBarberActivity extends ActionBarActivity {
         editor.putBoolean("isHighlight", chIsHighlight.isChecked());
         editor.commit();
     }
+    private void setUpQualification(SharedPreferences settings) {
+
+        TextView qualification      = (TextView) findViewById(R.id.qualification);
+        TextView specializationText = (TextView) findViewById(R.id.specializationText);
+        qualification.setTypeface(tf);
+        specializationText.setTypeface(tf);
+
+        CheckBox isBarber    = (CheckBox) findViewById(R.id.isBarber);
+        CheckBox isStylist   = (CheckBox) findViewById(R.id.isStylist);
+        CheckBox isMaster    = (CheckBox) findViewById(R.id.isMaster);
+        CheckBox isWomanCut  = (CheckBox) findViewById(R.id.isWomanCut);
+        CheckBox isManCut    = (CheckBox) findViewById(R.id.isManCut);
+        CheckBox isEvening   = (CheckBox) findViewById(R.id.isEvening);
+        CheckBox isColor     = (CheckBox) findViewById(R.id.isColor);
+        CheckBox isHighLight = (CheckBox) findViewById(R.id.isHighLight);
+        try {
+            isBarber.setTypeface(tf);
+            isBarber.setChecked(settings.getBoolean("isBarber", false));
+            isStylist.setTypeface(tf);
+            isStylist.setChecked(settings.getBoolean("isStylist", false));
+            isMaster.setTypeface(tf);
+            isMaster.setChecked(settings.getBoolean("isMaster", false));
+            isWomanCut.setTypeface(tf);
+            isWomanCut.setChecked(settings.getBoolean("isWomanCut", false));
+            isManCut.setTypeface(tf);
+            isManCut.setChecked(settings.getBoolean("isManCut", false));
+            isEvening.setTypeface(tf);
+            isEvening.setChecked(settings.getBoolean("isEvening", false));
+            isColor.setTypeface(tf);
+            isColor.setChecked(settings.getBoolean("isColor", false));
+            isHighLight.setTypeface(tf);
+            isHighLight.setChecked(settings.getBoolean("isHighLight", false));
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
 
     private void savePrices(){
         Log.i("save", "\nsavePrices\n");
@@ -801,6 +833,43 @@ public class NewBarberActivity extends ActionBarActivity {
         editor.putString("colorizePrice", cleanString(colorizePrice.getText().toString()));
         editor.commit();
     }
+    private void setUpPrices(SharedPreferences settings) {
+        try {
+            TextView mon = (TextView) findViewById(R.id.prices_base_cut_text);
+            mon.setTypeface(tf);
+            TextView tue = (TextView) findViewById(R.id.prices_colorize_price);
+            tue.setTypeface(tf);
+            tue.setText(settings.getString("colorizePrice", ""));
+            TextView wed = (TextView) findViewById(R.id.prices_colorize_text);
+            wed.setTypeface(tf);
+            TextView thu = (TextView) findViewById(R.id.prices_hairdo_price);
+            thu.setTypeface(tf);
+            tue.setText(settings.getString("hairdoPrice", ""));
+            TextView fri = (TextView) findViewById(R.id.prices_hairdo_text);
+            fri.setTypeface(tf);
+            TextView sat = (TextView) findViewById(R.id.prices_man_cut_price);
+            sat.setTypeface(tf);
+            tue.setText(settings.getString("manCutPrice", ""));
+            TextView sun = (TextView) findViewById(R.id.prices_man_cut_text);
+            sun.setTypeface(tf);
+            mon = (TextView) findViewById(R.id.prices_woman_cut_price);
+            mon.setTypeface(tf);
+            tue.setText(settings.getString("womanCutPrice", ""));
+            tue = (TextView) findViewById(R.id.prices_woman_cut_rext);
+            tue.setTypeface(tf);
+            mon = (TextView) findViewById(R.id.prices_grn1);
+            mon.setTypeface(tf);
+            tue = (TextView) findViewById(R.id.prices_grn2);
+            tue.setTypeface(tf);
+            mon = (TextView) findViewById(R.id.prices_grn3);
+            mon.setTypeface(tf);
+            mon = (TextView) findViewById(R.id.prices_grn4);
+            mon.setTypeface(tf);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     public void checkNewBarberData(View v) {
         savePrices();
@@ -1279,6 +1348,13 @@ public class NewBarberActivity extends ActionBarActivity {
 
     }
 
+    public void gotPin(String res){
+        if(res.length()==4)
+            clientPin=res;
+    }
 
+    public String cleanString(String dirty) {
+        return Html.fromHtml(dirty).toString();
+    }
 
 }

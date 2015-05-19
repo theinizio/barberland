@@ -2,25 +2,7 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string-array name="metro_list">
-        <item>Академгородок</item>
-        <item>Житомирская</item>
-        <item>Святошин</item>
-        <item>Нивки</item>
-        <item>Берестейская</item>
-        <item>Шулявская</item>
-        <item>Политехнический институт</item>
-        <item>Вокзальная</item>
-        <item>Университет</item>
-        <item>Театральная</item>
-        <item>Крещатик</item>
-        <item>Арсенальная</item>
-        <item>Днепр</item>
-        <item>Гидропарк</item>
-        <item>Левобережная</item>
-        <item>Дарница</item>
-        <item>Черниговская</item>
-        <item>Лесная</item>
+    <string-array name="metro_list_blue">
         <item>Героев Днепра</item>
         <item>Минская</item>
         <item>Оболонь</item>
@@ -39,6 +21,8 @@
         <item>Выставочный центр</item>
         <item>Ипподром</item>
         <item>Теремки</item>
+    </string-array>
+    <string-array name="metro_list_green">
         <item>Сырец</item>
         <item>Дорогожичи</item>
         <item>Лукьяновская</item>
@@ -55,6 +39,26 @@
         <item>Вырлица</item>
         <item>Бориспольская</item>
         <item>Красный хутор</item>
+    </string-array>
+    <string-array name="metro_list_red">
+        <item>Академгородок</item>
+        <item>Житомирская</item>
+        <item>Святошин</item>
+        <item>Нивки</item>
+        <item>Берестейская</item>
+        <item>Шулявская</item>
+        <item>Политехнический институт</item>
+        <item>Вокзальная</item>
+        <item>Университет</item>
+        <item>Театральная</item>
+        <item>Крещатик</item>
+        <item>Арсенальная</item>
+        <item>Днепр</item>
+        <item>Гидропарк</item>
+        <item>Левобережная</item>
+        <item>Дарница</item>
+        <item>Черниговская</item>
+        <item>Лесная</item>
     </string-array>
     <string-array name="qualifications_list">
         <item>мастер</item>
@@ -140,6 +144,13 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="metro_blue">#ffb4d4ff</color>
+    <color name="metro_green">#ffd3ffbf</color>
+    <color name="metro_red">#fffdd4cd</color>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
     <color name="primary_material_dark">#ff212121</color>
@@ -184,6 +195,9 @@
     <color name="wallet_hint_foreground_holo_light">#808080</color>
     <color name="wallet_holo_blue_light">#ff33b5e5</color>
     <color name="wallet_link_text_light">#0000ee</color>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="white">#ffffff</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -280,6 +294,11 @@
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.3.4/res/values/values.xml -->
+    <eat-comment/>
+    <item name="text" type="id"/>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <item name="up" type="id"/>
     <integer name="abc_max_action_buttons">2</integer>
     <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/res/values/version.xml -->
@@ -1123,6 +1142,22 @@ available. Please contact the developer for assistance.</string>
         <item name="android:scaleType">center</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.3.4/res/values/values.xml -->
+    <eat-comment/>
+    <style name="Bubble.TextAppearance.Dark" parent="android:TextAppearance.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ff7f7f7f</item>
+    </style>
+    <style name="Bubble.TextAppearance.Light" parent="Bubble.TextAppearance.Dark">
+        <item name="android:textColor">#ffeeeeee</item>
+    </style>
+    <style name="ClusterIcon.TextAppearance" parent="android:TextAppearance">
+        <item name="android:textColor">#ffeeeeee</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- From: file:/B:/AndroidstudioProjects/barberland/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
+    <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
         <item name="buttonBarStyle">@android:style/ButtonBar</item>

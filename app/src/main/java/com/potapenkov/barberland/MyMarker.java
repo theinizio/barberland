@@ -17,6 +17,7 @@ public class MyMarker
     public static final int mBARBER=1;
     public static final int mSTYLIST=2;
     public static final int mMASTER=3;
+    public static final int mSALON=4;
 
 
 

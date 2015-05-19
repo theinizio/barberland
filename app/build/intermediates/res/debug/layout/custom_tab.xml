@@ -8,8 +8,7 @@
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textSize="30dp"
+    android:textSize="21dp"
     android:textColor="@color/edit_text_color"
     android:autoText="false"
-    android:textIsSelectable="false"
-    android:background="@color/strip_bg" /><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/custom_tab.xml -->
+    android:textIsSelectable="false" /><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/custom_tab.xml -->
