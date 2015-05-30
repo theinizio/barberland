@@ -18,23 +18,23 @@
         android:layout_gravity="center_horizontal" />
 
 
-    <TableLayout
-        android:layout_below="@+id/regForm"
-        android:id="@+id/barberName"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp">
-        <TableRow android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        android:layout_marginLeft="12dp"
+        android:weightSum="1.0"
+        android:orientation="horizontal"
+        android:layout_marginRight="5dp">
 
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8">
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapWords|textPersonName"
                     android:id="@+id/barber_name"
@@ -47,7 +47,7 @@
                     android:focusable="true"
                     android:layout_gravity="left"
                     android:nextFocusDown="@+id/barber_second_name"
-                    android:textColorHint="@drawable/required_hint_color_selector"
+                    
                     android:ems="7" />
 
                 <Space
@@ -55,7 +55,7 @@
                     android:layout_height="@dimen/spaceSize" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences|textPersonName"
                     android:id="@+id/barber_second_name"
@@ -67,7 +67,7 @@
                     android:maxLength="50"
                     android:layout_gravity="left"
                     android:nextFocusDown="@+id/barber_email"
-                    android:textColorHint="@drawable/hint_color_selector"
+                    
                     android:ems="7" />
 
                 <Space
@@ -75,7 +75,7 @@
                     android:layout_height="@dimen/spaceSize" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:id="@+id/barber_email"
@@ -85,40 +85,41 @@
                     android:textColor="@color/edit_text_color"
                     android:textSize="@dimen/text_size"
                     android:nextFocusDown="@+id/barber_phone_number"
-                    android:textColorHint="@drawable/hint_color_selector"
+                   
                     android:ems="7" />
 
                 <Space
                     android:layout_width="fill_parent"
-                    android:layout_height="@dimen/spaceSize" />
+                    android:layout_height="3dp" />
 
             </LinearLayout>
             <LinearLayout android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/new_barber_photo_layout"
+                android:layout_weight="0.2">
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/barber_photo"
                     android:src="@drawable/nophoto"
                     android:background="@null"
-                    android:onClick="newCrop" />
-
-                <ProgressBar
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="5dp"
-                    android:id="@+id/progressBar" />
+                    android:onClick="newCrop"
+                    android:layout_gravity="right" />
 
             </LinearLayout>
-        </TableRow>
-        <TableRow android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        </LinearLayout>
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1.0"
+            android:orientation="horizontal">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_span="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/new_barber_phone_layout"
+                android:layout_weight=".6">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -133,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="phone|numberDecimal"
-                    android:ems="5"
+                    android:ems="10"
                     android:id="@+id/barber_phone_number"
 
                     android:hint="067..."
@@ -142,17 +143,26 @@
                     android:editable="true"
                     android:maxLength="10"
                     android:textColorHint="@drawable/required_hint_color_selector" />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/isViber"
-                    android:checked="true"
-                    android:text="Viber"
-                    android:textSize="@dimen/text_size"
-                    android:textColor="@color/edit_text_color" />
+
+
+
+
+
+                    <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/isViber"
+                            android:checked="true"
+                            android:text="Viber"
+                            android:textSize="@dimen/text_size"
+                            android:textColor="@color/edit_text_color"
+                        android:layout_centerVertical="true" />
+
+
+
             </LinearLayout>
-        </TableRow>
-    </TableLayout>
+        </LinearLayout>
+
 
 
     <TextView
@@ -169,7 +179,7 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/salonText"
         android:layout_marginLeft="12dp"
@@ -179,7 +189,7 @@
         android:background="#ffffff">
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textPersonName"
             android:ems="10"
@@ -192,14 +202,14 @@
             android:textColor="@color/edit_text_color"
             android:maxLength="50"
             android:background="#ffffff"
-            android:textColorHint="@drawable/hint_color_selector" />
+            />
 
         <Space
             android:layout_width="fill_parent"
             android:layout_height="@dimen/spaceSize" />
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/salon_address"
@@ -218,7 +228,7 @@
             android:layout_height="@dimen/spaceSize" />
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="phone|numberDecimal"
             android:ems="10"
@@ -230,7 +240,7 @@
             android:textColor="@color/edit_text_color"
             android:maxLength="13"
             android:background="#ffffff"
-            android:textColorHint="@drawable/hint_color_selector" />
+            />
 
     </LinearLayout>
 

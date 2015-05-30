@@ -3,7 +3,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -33,7 +37,7 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp">
 
@@ -44,36 +48,30 @@
             android:id="@+id/search_by_gps_button"
             android:textSize="@dimen/text_size"
             android:gravity="left|center|center_horizontal"
-            android:paddingLeft="5dp"
+            android:paddingLeft="8dp"
             android:onClick="searchGPS"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:background="@drawable/ramka" />
 
 
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="метро"
                 android:id="@+id/search_by_metro_button"
                 android:textColor="@color/edit_text_color"
                 android:textSize="@dimen/text_size"
-                android:paddingLeft="5dp"
+                android:paddingLeft="8dp"
                 android:paddingRight="2dp"
                 android:gravity="left|center|center_horizontal"
-                android:onClick="searchMetro"
-                android:theme="@style/Theme.AppCompat.Light" />
-
-            <Spinner
-                android:id="@+id/metro_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight=".5"
-
-                android:layout_gravity="right" />
+                android:onClick="showMetroSearchDialog"
+                android:theme="@style/Theme.AppCompat.Light"
+                android:background="@drawable/ramka" />
 
 
     </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,8 +96,9 @@
             android:textColor="@color/edit_text_color"
             android:textSize="@dimen/text_size"
             android:gravity="left|center|center_horizontal"
-            android:paddingLeft="5dp"
-            android:onClick="searchSalonName" />
+            android:paddingLeft="8dp"
+            android:onClick="showNameSearchDialog"
+            android:background="@drawable/ramka" />
 
         <Button
             android:layout_width="fill_parent"
@@ -109,9 +108,10 @@
             android:textSize="@dimen/text_size"
             android:textColor="@color/edit_text_color"
             android:gravity="left|center|center_horizontal"
-            android:paddingLeft="5dp"
+            android:paddingLeft="8dp"
             android:paddingRight="2dp"
-            android:onClick="showPriceSearchDialog" />
+            android:onClick="showPriceSearchDialog"
+            android:background="@drawable/ramka" />
 
         <Button
             android:layout_width="fill_parent"
@@ -120,10 +120,12 @@
             android:id="@+id/search_by_salon_service_type_button"
             android:textColor="@color/edit_text_color"
             android:textSize="@dimen/text_size"
-            android:paddingLeft="5dp"
+            android:paddingLeft="8dp"
             android:paddingRight="2dp"
             android:gravity="left|center|center_horizontal"
-            android:onClick="searchSalonServices" />
+            android:onClick="showSpecsSearchDialog"
+            android:nestedScrollingEnabled="false"
+            android:background="@drawable/ramka" />
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -152,21 +154,8 @@
             android:textSize="@dimen/text_size"
             android:background="@drawable/ramka"
             android:gravity="left|center|center_horizontal"
-            android:paddingLeft="5dp"
-            android:onClick="searchBarberName" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords|textPersonName"
-            android:ems="10"
-            android:id="@+id/search_barber_name"
-            android:maxLength="50"
-            android:textColor="@color/edit_text_color"
-            android:textSize="@dimen/text_size"
-            android:hint="Имя мастера"
-            android:textColorHint="@drawable/hint_color_selector"
-            android:layout_gravity="right" />
+            android:paddingLeft="8dp"
+            android:onClick="showNameSearchDialog" />
 
         <Button
                 android:layout_width="wrap_content"
@@ -177,25 +166,13 @@
                 android:textColor="@color/edit_text_color"
                 android:background="@drawable/ramka"
                 android:gravity="left|center|center_horizontal"
-                android:paddingLeft="5dp"
+                android:paddingLeft="8dp"
                 android:paddingRight="2dp"
                 android:layout_weight="0.5"
-                android:onClick="searchBarberSpecialization" />
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/specialization_spinner"
-
-                android:spinnerMode="dialog"
-                android:theme="@style/light6"
-                android:dropDownSelector="@color/required_field_hint_color"
-                android:contentDescription="стрижки"
-                style="@style/light6"
-                android:layout_gravity="right" />
+                android:onClick="showSpecsSearchDialog" />
 
 
-            <Button
+        <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Квалификация"
@@ -203,19 +180,11 @@
                 android:textColor="@color/edit_text_color"
                 android:textSize="@dimen/text_size"
                 android:background="@drawable/ramka"
-                android:paddingLeft="5dp"
+                android:paddingLeft="8dp"
                 android:paddingRight="2dp"
                 android:gravity="left|center|center_horizontal"
                 android:layout_weight="0.5"
-                android:onClick="searchBarberQualification" />
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/qualification_spinner"
-                android:layout_weight=".5"
-                style="@style/light6"
-                android:layout_gravity="right" />
+                android:onClick="showQualificatioSearchDialog" />
 
 
     </LinearLayout>
@@ -228,17 +197,35 @@
         android:id="@+id/search_by_time_text"
         android:textSize="@dimen/text_size"
         android:textColor="@color/edit_text_color"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:visibility="invisible" />
 
-    <TimePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timePicker2"
-        android:layout_gravity="right"
-        android:onClick="searchByTime"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
 
-        />
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="сегодня"
+            android:id="@+id/button"
+            android:onClick="showTimeSearchDialog"
+            android:background="@drawable/ramka"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_size"
+            android:visibility="invisible" />
+    </LinearLayout>
 
 </LinearLayout>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/progressBar"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 </ScrollView><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/search.xml -->

@@ -35,12 +35,12 @@ import java.util.HashMap;
  * Created by kirill on 17.05.2015.
  */
 public class NewClientActivity extends Activity {
-    private LatLng defaultLatLng=new LatLng(50.520830, 30.606008);
+    private LatLng defaultLatLng = new LatLng(50.520830, 30.606008);
     private LatLng startCoord;
-    private int currentViewId=0;
+    private int currentViewId = 0;
     private JSONObject barbers;
     public static final String PREFS_NAME = "barberlandSettings";
-    private final String UPLOADED_IMAGE_PATH="http://barberland.in.ua/upload/uploads/";
+    private final String UPLOADED_IMAGE_PATH = "http://barberland.in.ua/upload/uploads/";
     private GoogleMap mMap;
     private ArrayList<MyMarker> mMyMarkersArray = new ArrayList<MyMarker>();
     private HashMap<Marker, MyMarker> mMarkersHashMap;
@@ -48,14 +48,14 @@ public class NewClientActivity extends Activity {
     private ArrayAdapter<String> specializationsAdapter;
     private ArrayAdapter<String> qualificationsAdapter;
     private Uri mImageCaptureUri;
-    private Boolean getLocation=false;
+    private Boolean getLocation = false;
     private File sourceFile;
     private static final int PICK_FROM_CAMERA = 1;
     private static final int CROP_FROM_CAMERA = 2;
     private static final int PICK_FROM_FILE = 3;
     AlertDialog.Builder builder;
     public ProgressBar progressBar;
-    private String uploadedFilePath=null;
+    private String uploadedFilePath = null;
     private URL url = null;
     private String barberPassword;
     private String clientPin;
@@ -66,17 +66,17 @@ public class NewClientActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        tf=Typeface.createFromAsset(getAssets(),"teslic.ttf");
+        tf = Typeface.createFromAsset(getAssets(), "teslic.ttf");
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        Log.i("constructor","pinOk="+settings.getBoolean("pinOk",false));
-        if(settings.getBoolean("pinOk", false)){
-            Log.v("gotomap","gotomap");
-            finish();
-            Intent intent = new Intent(NewClientActivity.this, MapActivity.class);
+        Log.i("constructor", "pinOk=" + settings.getBoolean("pinOk", false));
+        if (settings.getBoolean("pinOk", false)) {
+            Log.v("gotomap", "gotomap");
+            //finish();
+            Intent intent = new Intent(NewClientActivity.this, SearchActivity.class);
             //intent.putExtra("type", ViewPagerAdapter.SALON);
             startActivity(intent);
-        }else {
+        } else {
             setContentView(R.layout.get_client_name);
             currentViewId = R.layout.get_client_name;
 
@@ -95,17 +95,17 @@ public class NewClientActivity extends Activity {
         }
     }
 
-    public void savePhoneAndName(View v){
-        TextView clientName =(TextView)findViewById(R.id.clientName);
-        TextView clientPhone=(TextView)findViewById(R.id.client_phone_number);
-        String clientPhoneText="+38"+MainActivity.cleanString(clientPhone.getText().toString());
-        if(checkNameAndPhone(MainActivity.cleanString(clientName.getText().toString()), clientPhoneText)){
+    public void savePhoneAndName(View v) {
+        TextView clientName = (TextView) findViewById(R.id.clientName);
+        TextView clientPhone = (TextView) findViewById(R.id.client_phone_number);
+        String clientPhoneText = "+38" + MainActivity.cleanString(clientPhone.getText().toString());
+        if (checkNameAndPhone(MainActivity.cleanString(clientName.getText().toString()), clientPhoneText)) {
             SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
             SharedPreferences.Editor editor = settings.edit();
-            editor.putString("clientName",  MainActivity.cleanString(clientName.getText().toString()));
+            editor.putString("clientName", MainActivity.cleanString(clientName.getText().toString()));
             editor.putString("clientPhone", MainActivity.cleanString(clientPhone.getText().toString()));
             editor.commit();
-            JSONObject jo=new JSONObject();
+            JSONObject jo = new JSONObject();
             try {
                 jo.put("dataType", "newClient");
                 jo.put("clientName", MainActivity.cleanString(clientName.getText().toString()));
@@ -113,44 +113,45 @@ public class NewClientActivity extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            JSONParser mJSONParser = new JSONParser(jo,this);
+            JSONParser mJSONParser = new JSONParser(jo, this);
             mJSONParser.execute();
             showPin();
         }
     }
 
-    public void skipRegistration(View v){
-        Intent intent = new Intent(NewClientActivity.this, MapActivity.class);
+    public void skipRegistration(View v) {
+        //finish();
+        Intent intent = new Intent(NewClientActivity.this, SearchActivity.class);
         //intent.putExtra("type", ViewPagerAdapter.SALON);
         startActivity(intent);
     }
 
-    private void showPin(){
+    private void showPin() {
         setContentView(R.layout.enter_pin);
-        currentViewId=R.layout.enter_pin;
+        currentViewId = R.layout.enter_pin;
         TextView pin = (TextView) findViewById(R.id.pin_code);
         pin.setTypeface(tf);
     }
 
-    public void gotPin(String res){
-        if(res!=null&&res.length()==4)
-            clientPin=res;
+    public void gotPin(String res) {
+        if (res != null && res.length() == 4)
+            clientPin = res;
     }
 
-    private boolean checkNameAndPhone(String name, String phone){
-        String errStr="";
-        if(name.  length()== 0)errStr+="Введиде Ваше Имя\n";
-        if(phone. length()!=13)errStr+="Введите номер телефона в формате +380...\n";
-        if(errStr.length()>  0){
+    private boolean checkNameAndPhone(String name, String phone) {
+        String errStr = "";
+        if (name.length() == 0) errStr += "Введиде Ваше Имя\n";
+        if (phone.length() != 13) errStr += "Введите номер телефона в формате +380...\n";
+        if (errStr.length() > 0) {
             Toast.makeText(getApplicationContext(), errStr, Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
 
-    public void checkPin(View v){
+    public void checkPin(View v) {
         TextView pin = (TextView) findViewById(R.id.pin_code);
-        if(clientPin!=null) {
+        if (clientPin != null) {
             //Log.v("pinlen", "pinlen " + clientPin+" "+clientPin.length());
             if (clientPin.length() != 4) {
                 Toast.makeText(getApplicationContext(), "Неправильный ответ от сервера", Toast.LENGTH_SHORT).show();
@@ -165,13 +166,15 @@ public class NewClientActivity extends Activity {
                 editor.putBoolean("pinOk", true);
                 editor.putInt("lastPin", Integer.parseInt(clientPin));
                 editor.commit();
-                Log.i("checkPin","pinOk="+settings.getBoolean("pinOk",false));
-                Intent intent = new Intent(NewClientActivity.this, MapActivity.class);
+                //Log.i("checkPin", "pinOk=" + settings.getBoolean("pinOk", false));
+                //finish();
+                Intent intent = new Intent(NewClientActivity.this, SearchActivity.class);
                 //intent.putExtra("type", ViewPagerAdapter.SALON);
                 startActivity(intent);
             }
         }
     }
+
     private void showAlert(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message).setTitle("Ответ сервера")
@@ -185,17 +188,23 @@ public class NewClientActivity extends Activity {
         alert.show();
     }
 
-    private void showToast(String txt){
+    private void showToast(String txt) {
         Toast.makeText(getApplicationContext(), txt, Toast.LENGTH_SHORT).show();
     }
 
-    private void hideKeyboard(){
-        View vf=this.getCurrentFocus();
-        if(vf!=null) {
+    private void hideKeyboard() {
+        View vf = this.getCurrentFocus();
+        if (vf != null) {
             InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(vf.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        //finish();
+        Intent intent = new Intent(NewClientActivity.this, MainActivity.class);
+        //intent.putExtra("type", ViewPagerAdapter.SALON);
+        startActivity(intent);
+    }
 }

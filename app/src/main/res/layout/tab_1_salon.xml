@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView" >
+
+<LinearLayout
     android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffffff">
@@ -18,29 +23,48 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        >
 
+
+        <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/new_salon_photo_layout"
+    android:orientation="vertical"
+            android:layout_weight="0.4">
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
             android:id="@+id/salon_logo"
-            android:src="@drawable/nophoto" />
+            android:src="@drawable/nophoto"
+            android:onClick="newCrop"
+            android:layout_marginLeft="5dp" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="callback"
+                android:id="@+id/new_salon_callback"
+                android:visibility="invisible"
+                android:onClick="callback" />
+        </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/new_salon_name"
                 android:hint="Название салона"
-                android:textColor="@color/text"
+                android:textColor="@color/edit_text_color"
                 android:textSize="@dimen/text_size"
                 android:maxLength="50"
-                android:textColorHint="@drawable/required_hint_color_selector" />
+                 />
 
             <Space
                 android:layout_width="fill_parent"
@@ -57,20 +81,20 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="+38"
                     android:id="@+id/new_salon_plus38"
-                    android:textColor="@color/text"
+                    android:textColor="@color/edit_text_color"
                     android:textSize="@dimen/text_size" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:ems="10"
                     android:id="@+id/new_salon_phone"
-                    android:textColor="@color/text"
+                    android:textColor="@color/edit_text_color"
                     android:textSize="@dimen/text_size"
                     android:hint="050..."
                     android:maxLength="10"
-                    android:textColorHint="@drawable/required_hint_color_selector" />
+                     />
 
             </LinearLayout>
 
@@ -79,16 +103,16 @@
                 android:layout_height="@dimen/spaceSize" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
                 android:id="@+id/new_salon_email"
                 android:hint="e-mail"
-                android:textColor="@color/text"
+                android:textColor="@color/edit_text_color"
                 android:textSize="@dimen/text_size"
                 android:maxLength="50"
-                android:textColorHint="@drawable/hint_color_selector" />
+                 />
 
         </LinearLayout>
     </LinearLayout>
@@ -98,22 +122,22 @@
         android:layout_height="@dimen/spaceSize" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/new_salon_address"
-        android:textColor="@color/text"
+        android:textColor="@color/edit_text_color"
         android:textSize="@dimen/text_size"
         android:hint="Адрес салона"
-        android:textColorHint="@drawable/required_hint_color_selector" />
+         />
 
     <Space
         android:layout_width="fill_parent"
         android:layout_height="@dimen/spaceSize" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
@@ -121,8 +145,9 @@
         android:layout_gravity="center_horizontal"
         android:hint="Другая информация"
         android:linksClickable="true"
-        android:textColor="@color/text"
+        android:textColor="@color/edit_text_color"
         android:textSize="@dimen/text_size"
-        android:textColorHint="@drawable/hint_color_selector"
+        
         android:minLines="2" />
 </LinearLayout>
+    </ScrollView>

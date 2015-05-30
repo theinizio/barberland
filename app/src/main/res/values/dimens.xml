@@ -9,5 +9,7 @@
     <dimen name="header_text_size">42dp</dimen>
     <dimen name="defalult_margin_left">20dp</dimen>
 
+    <dimen name="custom_profile_image">50dp</dimen>
+    <dimen name="custom_profile_padding">2dp</dimen>
 
     </resources>

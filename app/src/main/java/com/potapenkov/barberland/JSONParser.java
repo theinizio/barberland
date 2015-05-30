@@ -3,6 +3,7 @@ package com.potapenkov.barberland;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -23,9 +24,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,39 +38,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class JSONParser extends AsyncTask<Void, Integer, String> {
-    private LatLng defaultLatLng=new LatLng(50.520830, 30.606008);
-    private LatLng startCoord;
-    private int currentViewId=0;
-    private JSONObject barbers;
-    public static final String PREFS_NAME = "barberlandSettings";
-    private final String UPLOADED_IMAGE_PATH="http://barberland.in.ua/upload/uploads/";
-    private GoogleMap mMap;
-    private ArrayList<MyMarker> mMyMarkersArray = new ArrayList<MyMarker>();
-    private HashMap<Marker, MyMarker> mMarkersHashMap;
-    private Typeface tf;
-    private ArrayAdapter<String> specializationsAdapter;
-    private ArrayAdapter<String> qualificationsAdapter;
-    private Uri mImageCaptureUri;
-    private Boolean getLocation=false;
-    private File sourceFile;
-    private static final int PICK_FROM_CAMERA = 1;
-    private static final int CROP_FROM_CAMERA = 2;
-    private static final int PICK_FROM_FILE = 3;
-    AlertDialog.Builder builder;
-    public ProgressBar progressBar;
-    private String uploadedFilePath=null;
+
     private URL url = null;
-    private String barberPassword;
-    private String clientPin;
-    private GoogleApiClient mGoogleApiClient;
-
-
-
     private String responseString;
     private JSONObject dataToSend;
     private Object context;
 
-    // constructor
+
     public JSONParser(JSONObject j, Object c) {
         this.dataToSend=j;
         this.context=c;
@@ -117,7 +90,11 @@ public class JSONParser extends AsyncTask<Void, Integer, String> {
         try {
 
             String dataType=(String) dataToSend.get("dataType");
+            if(dataType.equals("callback")){
+                NewBarberActivity n = (NewBarberActivity) context;
+                n.showToast("сообщение отправлено.\nШутка");//\n"+dataToSend.getString("barber_phone")+"\n"+dataToSend.getString("client_phone"));
 
+            }
             if(dataType.equals("newClient")||dataType.equals("newBarber")||dataType.equals("newClient")){
                 SharedPreferences settings = ((Context) context).getSharedPreferences(MainActivity.PREFS_NAME, 0);
                 SharedPreferences.Editor editor = settings.edit();
@@ -137,16 +114,21 @@ public class JSONParser extends AsyncTask<Void, Integer, String> {
                         showAlert(pin);
                 }
             }
+            if(dataType.equals("showMeTheBarber")){
+
+                MapActivity mapActivity = (MapActivity) context;
+                mapActivity.showDetailedBarber(res);
+            }
             if (dataType.equals("specAndQualif")) {
-                MapActivity mapActivity =(MapActivity)context;
+                SearchActivity mapActivity =(SearchActivity)context;
                 mapActivity.fillSpinners(res);
             }
             if(dataType.equals("showAll")){
-                MapActivity mapActivity =(MapActivity)context;
+                SearchActivity mapActivity =(SearchActivity)context;
                 mapActivity.showAll(res);
             }
             if ( dataType.contains("search")) {
-                MapActivity mapActivity =(MapActivity)context;
+                SearchActivity mapActivity =(SearchActivity)context;
                 mapActivity.showOnMapAfterSearch(res);
             }
 

@@ -3,19 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
-    <TextView android:id="@+id/qualification"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Квалификация"
-        android:textColor="@color/edit_text_color"
-        android:layout_below="@+id/sheduleGrid"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/strip_bg"
-        android:layout_marginTop="8dp"
-        android:paddingLeft="12dp" />
+    android:background="#ffffff"
+    android:id="@+id/main_qualification_layout">
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentBottom="false"
@@ -23,6 +15,17 @@
         android:layout_marginLeft="10dp"
         android:id="@+id/qualificationGrid">
 
+
+        <TextView android:id="@+id/qualification"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Квалификация"
+            android:textColor="@color/edit_text_color"
+            android:layout_below="@+id/sheduleGrid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/strip_bg"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="12dp" />
 
         <CheckBox android:id="@+id/isBarber"
             android:checked="true"
@@ -57,9 +60,6 @@
             android:textColor="@color/edit_text_color"
             android:onClick="checkQualification"
             android:textSize="@dimen/text_size" />
-
-
-
 
 
     </LinearLayout>

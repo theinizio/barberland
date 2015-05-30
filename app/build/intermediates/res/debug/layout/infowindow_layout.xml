@@ -3,16 +3,24 @@
     android:id="@+id/marker_layout"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/marker_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/new_client" />
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
 
     <LinearLayout
-        android:id="@+id/station_info_layout"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/marker_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/new_client" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/barber_info_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >

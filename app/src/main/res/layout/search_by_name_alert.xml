@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords|textPersonName"
+        android:ems="10"
+        android:id="@+id/search_barber_name"
+        android:background="#ffffff"
+        android:maxLength="256"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_size"
+        android:hint="имя/название"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_name_button"
+        android:background="@null"
+        android:src="@drawable/ok"
+        android:onClick="searchBarberName"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>

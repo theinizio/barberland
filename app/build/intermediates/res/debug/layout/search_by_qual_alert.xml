@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="парикмахер"
+            android:id="@+id/r_barber"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_size"
+            android:checked="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="стилиист"
+            android:id="@+id/r_stylist"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_size" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="мастер"
+            android:id="@+id/r_master"
+            android:checked="true"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_size" />
+    </RadioGroup>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton4"
+        android:layout_gravity="right"
+        android:src="@drawable/ok"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@null"
+        android:onClick="searchBarberQualification" />
+
+</LinearLayout><!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/search_by_qual_alert.xml -->

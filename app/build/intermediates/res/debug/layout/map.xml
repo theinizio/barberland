@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.potapenkov.barberland.MapWrapperLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -26,5 +26,5 @@
 
     </fragment>
 
-</FrameLayout>
+</com.potapenkov.barberland.MapWrapperLayout>
 <!-- From: file:/B:/AndroidstudioProjects/barberland/app/src/main/res/layout/map.xml -->

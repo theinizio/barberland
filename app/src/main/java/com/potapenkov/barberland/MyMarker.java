@@ -2,7 +2,10 @@ package com.potapenkov.barberland;
 
 import android.graphics.Bitmap;
 
-public class MyMarker
+import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.clustering.ClusterItem;
+
+public class MyMarker implements ClusterItem
 {
     private String mLabel;
     private String mIcon;
@@ -19,6 +22,15 @@ public class MyMarker
     public static final int mMASTER=3;
     public static final int mSALON=4;
 
+    public int getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(int profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
+
+    private int profilePhoto;
 
 
     public MyMarker(String label, String icon, String phoneNumber, int qualification,
@@ -32,6 +44,26 @@ public class MyMarker
         this.mQualification=qualification;
         this.mSpecializations=specializations;
         this.mShedule=shedule;
+
+
+        switch (qualification) {
+            default:
+            case MyMarker.mBARBER:
+                profilePhoto = R.drawable.barber;
+                break;
+            case MyMarker.mSTYLIST:
+                profilePhoto = R.drawable.stylist;
+                break;
+            case MyMarker.mMASTER:
+                profilePhoto = R.drawable.master;
+                break;
+
+            case MyMarker.mSALON:
+                profilePhoto = R.drawable.salon_icon;
+                break;
+        }
+
+
     }
 
     
@@ -133,8 +165,8 @@ public class MyMarker
     }
 
 
-
-
-
-
+    @Override
+    public LatLng getPosition() {
+        return new LatLng(mLatitude, mLongitude);
+    }
 }

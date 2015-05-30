@@ -46,7 +46,7 @@ public class MainActivity extends Activity  {
         }
         return super.onOptionsItemSelected(item);
     }
-
+/*
     private int backPressedCount=0;
     @Override
     public void onBackPressed(){
@@ -58,23 +58,27 @@ public class MainActivity extends Activity  {
                 break;
             case R.layout.start_page:
                 if(++backPressedCount==2){
-                    finish();
+                    System.exit(0);
                 }else Toast.makeText(this, "Нажмите повторно для выхода", Toast.LENGTH_SHORT).show();
                 break;
         }
    }
-
+*/
     public void newClient(View v){
+        //finish();
         Intent intent = new Intent(MainActivity.this, NewClientActivity.class);
         startActivity(intent);
+
     }
 
     public void newBarber(View v){
+        //finish();
         Intent intent = new Intent(MainActivity.this, NewBarberActivity.class);
         intent.putExtra("barberOrSalon", ViewPagerAdapter.BARBER);
         startActivity(intent);
     }
     public void newSalon(View v){
+        //finish();
         Intent intent = new Intent(MainActivity.this, NewBarberActivity.class);
         intent.putExtra("barberOrSalon", ViewPagerAdapter.SALON);
         startActivity(intent);
