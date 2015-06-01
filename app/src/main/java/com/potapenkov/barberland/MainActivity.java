@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,24 +47,28 @@ public class MainActivity extends Activity  {
         }
         return super.onOptionsItemSelected(item);
     }
-/*
-    private int backPressedCount=0;
+
+
     @Override
     public void onBackPressed(){
+
         switch (currentViewId){
             case R.layout.barber_or_salon:
                 setContentView(R.layout.start_page);
                 currentViewId=R.layout.start_page;
-                backPressedCount=0;
                 break;
             case R.layout.start_page:
-                if(++backPressedCount==2){
-                    System.exit(0);
-                }else Toast.makeText(this, "Нажмите повторно для выхода", Toast.LENGTH_SHORT).show();
+                super.onBackPressed();
                 break;
         }
-   }
-*/
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        setContentView(currentViewId);
+        Log.i("zzz", "curViewID=" + getResources().getResourceEntryName(currentViewId));
+
+    }
     public void newClient(View v){
         //finish();
         Intent intent = new Intent(MainActivity.this, NewClientActivity.class);

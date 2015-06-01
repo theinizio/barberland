@@ -33,27 +33,53 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8">
 
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords|textPersonName"
-                    android:id="@+id/barber_name"
-                    android:hint="Имя"
-                    android:textColor="@color/edit_text_color"
-                    android:paddingLeft="10dp"
-                    android:textSize="@dimen/text_size"
-                    android:editable="true"
-                    android:maxLength="50"
-                    android:focusable="true"
-                    android:layout_gravity="left"
-                    android:nextFocusDown="@+id/barber_second_name"
-                    
-                    android:ems="7" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="*"
+                        android:id="@+id/star1"
+                        android:textColor="@color/edit_text_color" />
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords|textPersonName"
+                        android:id="@+id/barber_name"
+                        android:hint="Имя"
+                        android:textColor="@color/edit_text_color"
+                        android:paddingLeft="10dp"
+                        android:textSize="@dimen/text_size"
+                        android:editable="true"
+                        android:maxLength="50"
+                        android:focusable="true"
+                        android:layout_gravity="left"
+                        android:nextFocusDown="@+id/barber_second_name"
+
+                        android:ems="7"
+                        android:textColorHint="@color/required_field_hint_color" />
+                </LinearLayout>
 
                 <Space
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/spaceSize" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="*"
+                        android:id="@+id/star2"
+                        android:textColor="@color/edit_text_color" />
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -67,13 +93,24 @@
                     android:maxLength="50"
                     android:layout_gravity="left"
                     android:nextFocusDown="@+id/barber_email"
-                    
-                    android:ems="7" />
-
+                    android:ems="7"
+                    android:textColorHint="@color/required_field_hint_color" />
+                </LinearLayout>
                 <Space
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/spaceSize" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="*"
+                        android:id="@+id/star3"
+                        android:textColor="@color/edit_text_color" />
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -85,9 +122,9 @@
                     android:textColor="@color/edit_text_color"
                     android:textSize="@dimen/text_size"
                     android:nextFocusDown="@+id/barber_phone_number"
-                   
-                    android:ems="7" />
-
+                    android:ems="7"
+                    android:textColorHint="@color/required_field_hint_color" />
+                </LinearLayout>
                 <Space
                     android:layout_width="fill_parent"
                     android:layout_height="3dp" />
@@ -119,7 +156,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/new_barber_phone_layout"
-                android:layout_weight=".6">
+                android:layout_weight=".6"
+                android:layout_marginLeft="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -192,26 +230,35 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textPersonName"
-            android:ems="10"
+            android:ems="7"
             android:id="@+id/salon_name"
             android:editable="true"
             android:paddingLeft="10dp"
             android:textSize="@dimen/text_size"
             android:hint="Название салона"
-            android:minWidth="150dp"
+
             android:textColor="@color/edit_text_color"
-            android:maxLength="50"
-            android:background="#ffffff"
-            />
+            android:maxLength="50" />
 
         <Space
             android:layout_width="fill_parent"
             android:layout_height="@dimen/spaceSize" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="*"
+                android:id="@+id/star4"
+                android:textColor="@color/edit_text_color" />
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="7"
             android:id="@+id/salon_address"
             android:editable="true"
             android:paddingLeft="10dp"
@@ -220,9 +267,8 @@
             android:inputType="textPostalAddress"
             android:textColor="@color/edit_text_color"
             android:maxLength="50"
-            android:background="#ffffff"
             android:textColorHint="@drawable/required_hint_color_selector" />
-
+            </LinearLayout>
         <Space
             android:layout_width="fill_parent"
             android:layout_height="@dimen/spaceSize" />
@@ -231,16 +277,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="phone|numberDecimal"
-            android:ems="10"
+            android:ems="7"
             android:id="@+id/salon_phone"
             android:editable="true"
             android:paddingLeft="10dp"
             android:textSize="@dimen/text_size"
             android:hint="Телефон салона"
             android:textColor="@color/edit_text_color"
-            android:maxLength="13"
-            android:background="#ffffff"
-            />
+            android:maxLength="13" />
 
     </LinearLayout>
 

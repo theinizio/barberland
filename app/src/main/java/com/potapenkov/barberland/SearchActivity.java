@@ -331,6 +331,12 @@ public class SearchActivity extends Activity
         }
     }
 
+
+    public void showSpinner(View v){
+        Spinner s=(Spinner)findViewById(R.id.metro_spinner);
+        s.performClick();
+    }
+
     public void showSpecsSearchDialog(View v){
         if(specializations.size()>0) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);

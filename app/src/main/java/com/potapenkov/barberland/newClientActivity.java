@@ -72,7 +72,7 @@ public class NewClientActivity extends Activity {
         Log.i("constructor", "pinOk=" + settings.getBoolean("pinOk", false));
         if (settings.getBoolean("pinOk", false)) {
             Log.v("gotomap", "gotomap");
-            //finish();
+            this.finish();
             Intent intent = new Intent(NewClientActivity.this, SearchActivity.class);
             //intent.putExtra("type", ViewPagerAdapter.SALON);
             startActivity(intent);
