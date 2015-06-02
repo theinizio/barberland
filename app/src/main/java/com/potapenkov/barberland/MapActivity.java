@@ -1,7 +1,6 @@
 package com.potapenkov.barberland;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,10 +10,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,7 +21,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -35,7 +31,6 @@ import com.google.maps.android.clustering.ClusterManager;
 import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 import com.google.maps.android.ui.IconGenerator;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,7 +38,6 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Random;
 
@@ -239,9 +233,13 @@ public class MapActivity extends FragmentActivity implements ClusterManager.OnCl
                     @Override
                     protected Void doInBackground(Void... params) {
                         try {
-                            InputStream in = new URL(UPLOADED_IMAGE_PATH+finalArr.getString("photo_path")).openStream();
+                            String path=finalArr.getString("photo_path");
+                            Character firstSybol=path.charAt(0);
+                            if(!(Character.isLetter(firstSybol)||Character.isDigit(firstSybol)))
+                               path=path.substring(1);
+                            InputStream in = new URL(UPLOADED_IMAGE_PATH+path).openStream();
                             bitmap[0] = decodeStream(in);
-                        } catch (Exception e) {e.printStackTrace();}
+                        }catch(Exception e) {e.printStackTrace();}
                         return null;
                     }
                     @Override

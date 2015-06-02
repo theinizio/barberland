@@ -55,7 +55,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.6">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="*"
+                    android:id="@+id/star1"
+                    android:textColor="@color/edit_text_color" />
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -64,8 +75,8 @@
                 android:textColor="@color/edit_text_color"
                 android:textSize="@dimen/text_size"
                 android:maxLength="50"
-                 />
-
+                android:textColorHint="@color/required_field_hint_color" />
+</LinearLayout>
             <Space
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/spaceSize" />
@@ -74,7 +85,13 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="*"
+                    android:id="@+id/star2"
+                    android:textColor="@color/edit_text_color" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,6 +100,8 @@
                     android:id="@+id/new_salon_plus38"
                     android:textColor="@color/edit_text_color"
                     android:textSize="@dimen/text_size" />
+
+
 
                 <EditText
                     android:layout_width="fill_parent"
@@ -94,7 +113,7 @@
                     android:textSize="@dimen/text_size"
                     android:hint="050..."
                     android:maxLength="10"
-                     />
+                    android:textColorHint="@color/required_field_hint_color" />
 
             </LinearLayout>
 
@@ -120,7 +139,18 @@
     <Space
         android:layout_width="fill_parent"
         android:layout_height="@dimen/spaceSize" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="*"
+            android:id="@+id/star3"
+            android:textColor="@color/edit_text_color" />
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -130,8 +160,8 @@
         android:textColor="@color/edit_text_color"
         android:textSize="@dimen/text_size"
         android:hint="Адрес салона"
-         />
-
+        android:textColorHint="@color/required_field_hint_color" />
+</LinearLayout>
     <Space
         android:layout_width="fill_parent"
         android:layout_height="@dimen/spaceSize" />

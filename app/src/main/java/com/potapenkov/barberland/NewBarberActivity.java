@@ -1126,8 +1126,8 @@ public class NewBarberActivity extends ActionBarActivity {
                     LinearLayout main = (LinearLayout) findViewById(R.id.main_qualification_layout);
                     main.removeViewAt(0);
                 } else {
-                    LinearLayout l = (LinearLayout) findViewById(R.id.qualificationGrid);
-                    l.setVisibility(View.INVISIBLE);
+                    LinearLayout l = (LinearLayout) findViewById(R.id.main_qualification_layout);
+                    l.removeView(findViewById(R.id.qualificationGrid));
                     isBarber.setOnClickListener(null);
                     isBarber.setChecked(false);
                     isMaster.setOnClickListener(null);

@@ -2,95 +2,60 @@
 <items version="2" >
 
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-8bdecbfebaaa77b376f1a5bc29fac02f27ef2f35.jar" />
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-4ee07c7dd01112fe709289348cd2735d4e4cdd7f.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-466075574193c105d1df29b25b3808bc9bce6b5e.jar" />
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-fb4a5197d70409395bf069d4a5341c48d207201b.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-4a5bccbbfe837bfd623b1129d71bd0894a2b38bc.jar" />
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-be985fa238ff9b398c4415a3b2083eed9298371f.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-af4eb255df4962b625e0226518080f4d0bdd6530.jar" />
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-eb814b5b4654410611896c696f878d20b32b26e1.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-66ca63481db5f5ebee7c1c1fcdde08b3e1d23e0d.jar" />
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-1bab85f6a15a821002c54adbd021fed4f71aefdb.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\src\main\libs\httpclient-4.3.6.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="f3cf3b25e14d3bca47773e95aa85ea8fefbf8e81">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-a92505716f00cc670e38c6591459b7a67a05c1cc.jar" />
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-13f71805313eab42ce7bf2d4a0c60f64f8c8b964.jar" />
     </item>
     <item
-        jar="B:\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-c3a1d850d8d8a3b2a13ea7cdc8ef959cef001393.jar" />
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-75d750e5bc8e6d6fb9bc17bf826c5c009bb1fad6.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="055783146ba9654a725442563be78cad303aad1f">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-46d8b4da0964e472a8d9084c1a78cc6e0c5b282b.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-25fec8684634ce89456e6bc5185168c4bbac9c50.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-e255293fd4aaa2d2262cc497b49466718d353427.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-a8f1b467434bc6bf2328acae19fa2a4e158d3e19.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\src\main\libs\httpcore-4.3.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\httpcore-4.3.3-41d7e4323c46ba565f1096dfec471310572b7c11.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-afe8725fe0025ab0e94f6e1c74912dcfe94e0a05.jar" />
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-a1ca086635c0ea57a1d1e13853b0d5688e4eb15c.jar" />
     </item>
     <item
         jar="B:\AndroidstudioProjects\barberland\app\src\main\libs\httpmime-4.3.6.jar"
@@ -100,32 +65,116 @@
         <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\httpmime-4.3.6-d43d2ebc1009e77c7e81f054f73a297c9fb3dee1.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-5fe06ae7d717e38ec0b1a338b6ccc0bede2077d4.jar" />
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-2ad1e9283597f29dc43aaca93f12af2b198f91cf.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-626b75f5ba0ea6dfad0d730e8e8e9fe428fd4bcf.jar" />
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-88f27567c45b9bb5a89b37562648d4414116b5cf.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-c99f71b99888fd84cc3f6fcf3fd02d36aa535f12.jar" />
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-e821e5c4dbaf206d28b922cf3a2874d79feb4c9a.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.3.4\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-88b09c4ffefbfe95c41bded77e5b8584ca20bdc7.jar" />
+        sha1="cf251baf39f5c5138224b67b4106eb6331abbd13">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-00bfcda450b6d137a3ead2c493af06b1bcdedd94.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-b6023e668cb3a1ec3f845646977c0e02aaadc72b.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-c2e0e6ef5c8f885cc6c064a9863edab69dee34a8.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-eda74ea8875fe7ccdd8598d26b4dec870144aee0.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-b2c89415d64ee9abfb43df429f769dcda09fa118.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-6a06cb73d35c48ea2b23935853c362f6db1bddb4.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\src\main\libs\httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f3cf3b25e14d3bca47773e95aa85ea8fefbf8e81">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-a92505716f00cc670e38c6591459b7a67a05c1cc.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-585155997a0b133a83c08f13cc02f6cedb8277ef.jar" />
+    </item>
+    <item
+        jar="B:\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-c3a1d850d8d8a3b2a13ea7cdc8ef959cef001393.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-7b0f17d1461175cfc015581c5526af0fd141e071.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\src\main\libs\httpcore-4.3.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\httpcore-4.3.3-41d7e4323c46ba565f1096dfec471310572b7c11.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-9c5b360ed74b1d5d933542f378ec207dd9507735.jar" />
+    </item>
+    <item
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-43ab9cb7e9d75f4e090b2516a08237e05eb8435c.jar" />
     </item>
     <item
         jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
@@ -135,46 +184,25 @@
         <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-0fb2c564f0413d5a713bc9a8cdc31e42a346dd63.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-b21d4360c037f0779e751438eec08857dc9d3427.jar" />
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-ab625ac6bd9b2a46ae279aeedf79ca6cdfcdd617.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-0bda44d0a9d3a10378747605c9282836192d2f90.jar" />
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-9533d69b4009b37204a01f1dce08f6bafbf1df36.jar" />
     </item>
     <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.0.0\classes.jar"
+        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-a4c6ebaf8590c47551c27807a191e219cc2c9684.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-92281c924fd7c63b57a228c866875dd6a7e658eb.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-3e9247d08ad51a03c77ee6848da64fc44dea7b67.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-05b7f0fe5b49522c58432328f9f1619dc9c524ce.jar" />
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-96b8df2d271c4cfebfd0fd52af46c8e251661136.jar" />
     </item>
     <item
         jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
@@ -182,13 +210,6 @@
         revision="21.1.2"
         sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
         <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-2e3d6c5e77e16fcd20a33e7892fefe27df265274.jar" />
-    </item>
-    <item
-        jar="B:\AndroidstudioProjects\barberland\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.3.4\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="cf251baf39f5c5138224b67b4106eb6331abbd13">
-        <dex dex="B:\AndroidstudioProjects\barberland\app\build\intermediates\pre-dexed\debug\classes-00bfcda450b6d137a3ead2c493af06b1bcdedd94.jar" />
     </item>
 
 </items>
