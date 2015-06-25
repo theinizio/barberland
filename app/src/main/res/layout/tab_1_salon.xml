@@ -17,8 +17,8 @@
         android:layout_gravity="center_horizontal" />
 
     <Space
-        android:layout_width="20px"
-        android:layout_height="20px" />
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/spaceSize" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -40,7 +40,8 @@
             android:id="@+id/salon_logo"
             android:src="@drawable/nophoto"
             android:onClick="newCrop"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+             />
 
             <Button
                 android:layout_width="wrap_content"
@@ -54,7 +55,8 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6">
+            android:layout_weight="0.6"
+            android:layout_marginLeft="5dp">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

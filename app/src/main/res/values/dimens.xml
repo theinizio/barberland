@@ -4,7 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
 
-    <dimen name="text_size">21dp</dimen>
+    <dimen name="text_size">19dp</dimen>
     <dimen name="spaceSize">7dp</dimen>
     <dimen name="header_text_size">42dp</dimen>
     <dimen name="defalult_margin_left">20dp</dimen>
